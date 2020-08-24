@@ -1,0 +1,122 @@
+<form class="{{cssClass}} container mx-auto p-6 bg-white" autocomplete="off">
+
+    {{!-- Sheet Header --}}
+    <header>
+
+
+        <div class="grid grid-cols-3 gap-4 mb-4">
+            <img class="h-40 w-40 rounded object-cover col-span-1" src="{{actor.img}}" data-edit="img" title="{{actor.name}}">
+
+            <div class="col-span-2">
+                <label class="block uppercase tracking-wide text-black text-md font-bold mb-1" for="{{actor.name}}">Name</label>
+                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-2 focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="name" value="{{actor.name}}">
+
+                <label class="block uppercase tracking-wide text-black text-md font-bold mb-1" for="{{data.level.value}}">Level</label>
+                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-2 focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="data.level.value" value="{{data.level.value}}">
+
+                <label class="block uppercase tracking-wide text-black text-md font-bold mb-1" for="{{data.exp.value}}">Exp</label>
+                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-2 focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="data.exp.value" value="{{data.exp.value}}">
+            </div>
+
+        </div>
+        <div class="grid grid-cols-3 gap-4">
+            {{#each data.stats as |stat key|}}
+            <div class="col-span-1">
+                <label class="block uppercase tracking-wide text-black text-xs font-bold cursor-pointer rollable" data-label="{{key}}" for="data.stats.{{key}}.value" data-roll="d20+@stats.{{key}}.value"><i class="fas fa-dice-d20"></i> {{key}}</label>
+                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="data.stats.{{key}}.value" value="{{stat.value}}" data-dtype="Number">
+            </div>
+
+            {{/each}}
+
+        </div>
+
+
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs uppercase tracking-wide text-black text-lg font-bold my-4" data-group="primary">
+        <a class="item" data-tab="description">Notes</a>
+        <a class="item" data-tab="items">Items</a>
+        <a class="item" data-tab="spells">Spellbook</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+
+        {{!-- Biography Tab --}}
+        <div class="tab biography" data-group="primary" data-tab="description">
+
+
+            <div class="md:flex mb-4">
+                <div class="md:w-1/4">
+                    <label class="block uppercase tracking-wide text-black text-md font-bold md:text-left mb-1 md:mb-0 pr-4" for="{{data.notes}}">
+                    Description
+                  </label>
+                </div>
+                <div class="md:w-3/4">
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="data.notes" value="{{data.notes}}" data-dtype="Text">
+                </div>
+            </div>
+
+            <div class="md:flex mb-4">
+                <div class="md:w-1/4">
+                    <label class="block uppercase tracking-wide text-black text-md font-bold md:text-left mb-1 md:mb-0 pr-4" for="{{data.homebase}}">
+                    Home Base
+                  </label>
+                </div>
+                <div class="md:w-3/4">
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="data.homebase" value="{{data.homebase}}" data-dtype="Text">
+                </div>
+            </div>
+
+            <div class="md:flex mb-4">
+                <div class="md:w-1/4">
+                    <label class="block uppercase tracking-wide text-black text-md font-bold md:text-left mb-1 md:mb-0 pr-4" for="{{data.vault}}">
+                    Vault
+                  </label>
+                </div>
+                <div class="md:w-3/4">
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="data.vault" value="{{data.vault}}" data-dtype="Text">
+                </div>
+            </div>
+
+            <div class="md:flex mb-4">
+                <div class="md:w-1/4">
+                    <label class="block uppercase tracking-wide text-black text-md font-bold md:text-left mb-1 md:mb-0 pr-4" for="{{data.treasury}}">
+                    Treasury
+                  </label>
+                </div>
+                <div class="md:w-3/4">
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="data.treasury" value="{{data.treasury}}" data-dtype="Text">
+                </div>
+            </div>
+
+
+
+        </div>
+
+        {{!-- Owned Items Tab --}}
+        <div class="tab items" data-group="primary" data-tab="items">
+            <ol class="items-list">
+                <li class="item flexrow item-header">
+                    <div class="item-image"></div>
+                    <div class="item-name">Name</div>
+                    <div class="item-controls">
+                        <a class="item-control item-create" title="Create item" data-type="item"><i class="fas fa-plus"></i> Add item</a>
+                    </div>
+                </li>
+                {{#each actor.items as |item id|}}
+                <li class="item flexrow" data-item-id="{{item._id}}">
+                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
+                    <h4 class="item-name">{{item.name}}</h4>
+                    <div class="item-controls">
+                        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
+                {{/each}}
+            </ol>
+        </div>
+
+    </section>
+</form>

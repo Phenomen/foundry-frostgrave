@@ -1,0 +1,77 @@
+{
+    "Actor": {
+        "types": ["character"],
+        "templates": {
+            "base": {
+                "notes": "",
+                "level": {
+                    "value": 1
+                },
+                "exp": {
+                    "value": 0
+                }
+            }
+        },
+        "character": {
+            "templates": ["base"],
+            "homebase": "",
+            "vault": "",
+            "treasury": "",
+            "attributes": {
+                "level": {
+                    "value": 1
+                }
+            },
+            "stats": {
+                "move": {
+                    "value": 6,
+                    "min": 0,
+                    "max": 6
+                },
+                "fight": {
+                    "value": 2,
+                    "min": 0,
+                    "max": 2
+                },
+                "shoot": {
+                    "value": 0,
+                    "min": 0,
+                    "max": 0
+                },
+                "armour": {
+                    "value": 10,
+                    "min": 0,
+                    "max": 10
+                },
+                "will": {
+                    "value": 4,
+                    "min": 0,
+                    "max": 4
+                },
+                "health": {
+                    "value": 10,
+                    "min": 0,
+                    "max": 10
+                }
+            }
+        }
+    },
+    "Item": {
+        "types": ["item"],
+        "templates": {
+            "base": {
+                "description": ""
+            }
+        },
+        "item": {
+            "templates": ["base"],
+            "quantity": 1,
+            "weight": 0
+        },
+        "spell": {
+            "templates": ["base"],
+            "quantity": 1,
+            "weight": 0
+        }
+    }
+}

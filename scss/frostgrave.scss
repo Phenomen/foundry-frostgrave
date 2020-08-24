@@ -1,0 +1,12 @@
+// Import utilities.
+@import 'utils/typography';
+@import 'utils/colors';
+@import 'utils/mixins';
+@import 'utils/variables';
+@import 'frostgrave/custom';
+
+/* Styles limited to frostgrave sheets */
+
+.frostgrave {
+    @import 'tailwind/tailwind';
+}

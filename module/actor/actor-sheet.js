@@ -21,9 +21,9 @@ export class frostgraveActorSheet extends ActorSheet {
     getData() {
         const data = super.getData();
         data.dtypes = ["String", "Number", "Boolean"];
-        for (let attr of Object.values(data.data.stats)) {
-            attr.isCheckbox = attr.dtype === "Boolean";
-        }
+        //for (let attr of Object.values(data.data.attributes)) {
+        //  attr.isCheckbox = attr.dtype === "Boolean";
+        // }
         return data;
     }
 

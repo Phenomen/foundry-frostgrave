@@ -1,29 +1,27 @@
 {
-  "name": "frostgrave",
-  "title": "Frostgrave",
-  "description": "The Frostgrave system for FoundryVTT!",
-  "version": "1.0.0",
-  "minimumCoreVersion": "0.5.5",
-  "compatibleCoreVersion": "0.5.5",
-  "templateVersion": 2,
-  "author": "Phenomen",
-  "esmodules": ["module/frostgrave.js"],
-  "styles": ["css/frostgrave.css"],
-  "scripts": [],
-  "packs": [],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    }
-  ],
-  "gridDistance": 5,
-  "gridUnits": "ft",
-  "primaryTokenAttribute": "health",
-  "secondaryTokenAttribute": "power",
-  "url": "",
-  "manifest": "",
-  "download": "",
-  "license": "LICENSE.txt"
+    "name": "frostgrave",
+    "title": "Frostgrave",
+    "description": "The Frostgrave system for FoundryVTT!",
+    "version": "1.0.0",
+    "minimumCoreVersion": "0.6.5",
+    "compatibleCoreVersion": "0.6.5",
+    "templateVersion": 2,
+    "author": "Phenomen",
+    "esmodules": ["module/frostgrave.js"],
+    "styles": ["css/frostgrave.css"],
+    "scripts": [],
+    "packs": [],
+    "languages": [{
+        "lang": "en",
+        "name": "English",
+        "path": "lang/en.json"
+    }],
+    "gridDistance": 5,
+    "gridUnits": "ft",
+    "primaryTokenAttribute": "health",
+    "secondaryTokenAttribute": "",
+    "url": "",
+    "manifest": "",
+    "download": "",
+    "license": "LICENSE.txt"
 }

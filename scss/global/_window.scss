@@ -1,0 +1,17 @@
+.window-app {
+    font-family: $font-primary;
+    box-shadow: 0 0 20px $oc-blue-4;
+    .window-content {
+        background: none;
+        background-color: $oc-blue-0;
+    }
+}
+
+.rollable {
+    &:hover,
+    &:focus {
+        color: $oc-black;
+        text-shadow: 0 0 10px $oc-blue-8;
+        cursor: pointer;
+    }
+}

@@ -3,75 +3,58 @@
         "types": ["character"],
         "templates": {
             "base": {
-                "notes": "",
-                "level": {
-                    "value": 1
-                },
-                "exp": {
-                    "value": 0
+                "biography": "",
+                "model": "",
+                "mod": 0,
+                "stats": {
+                    "move": {
+                        "value": 6,
+                        "real": 6
+                    },
+                    "fight": {
+                        "value": 2,
+                        "real": 2
+                    },
+                    "shoot": {
+                        "value": 0,
+                        "real": 0
+                    },
+                    "armour": {
+                        "value": 10,
+                        "real": 10
+                    },
+                    "will": {
+                        "value": 4,
+                        "real": 4
+                    },
+                    "health": {
+                        "value": 10,
+                        "real": 6
+                    }
                 }
             }
         },
         "character": {
             "templates": ["base"],
+            "level": 0,
+            "exptotal": 0,
+            "expscenario": 0,
+            "school": "",
             "homebase": "",
-            "vault": "",
-            "treasury": "",
-            "attributes": {
-                "level": {
-                    "value": 1
+            "treasury": ""
+        },
+        "Item": {
+            "types": ["item"],
+            "templates": {
+                "base": {
+                    "description": ""
                 }
             },
-            "stats": {
-                "move": {
-                    "value": 6,
-                    "min": 0,
-                    "max": 6
-                },
-                "fight": {
-                    "value": 2,
-                    "min": 0,
-                    "max": 2
-                },
-                "shoot": {
-                    "value": 0,
-                    "min": 0,
-                    "max": 0
-                },
-                "armour": {
-                    "value": 10,
-                    "min": 0,
-                    "max": 10
-                },
-                "will": {
-                    "value": 4,
-                    "min": 0,
-                    "max": 4
-                },
-                "health": {
-                    "value": 10,
-                    "min": 0,
-                    "max": 10
-                }
+            "item": {
+                "templates": ["base"],
+                "quantity": 1,
+                "weight": 0
             }
-        }
-    },
-    "Item": {
-        "types": ["item"],
-        "templates": {
-            "base": {
-                "description": ""
-            }
-        },
-        "item": {
-            "templates": ["base"],
-            "quantity": 1,
-            "weight": 0
-        },
-        "spell": {
-            "templates": ["base"],
-            "quantity": 1,
-            "weight": 0
         }
     }
 }

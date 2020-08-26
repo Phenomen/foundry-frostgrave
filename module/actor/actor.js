@@ -28,8 +28,10 @@ export class frostgraveActor extends Actor {
         // Make modifications to data here. For example:
 
         // Loop through ability scores, and add their modifiers to our sheet output.
-        //for (let [key, stat] of Object.entries(data.stats)) {
+        // for (let [key, ability] of Object.entries(data.abilities)) {
         // Calculate the modifier using d20 rules.
-        //  stat.mod = Math.floor((stat.value - 10) / 2);
+        //   ability.mod = Math.floor((ability.value - 10) / 2);
+        // }
     }
+
 }

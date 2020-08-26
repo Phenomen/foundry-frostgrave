@@ -1,0 +1,62 @@
+.item-form {
+    font-family: $font-primary;
+}
+
+.sheet-header {
+    flex: 0 0 210px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    .profile-img {
+        flex: 0 0 130px;
+        height: 190px;
+        margin-right: 10px;
+        object-fit: cover;
+        border-color: $oc-blue-8;
+        border-width: 1px;
+    }
+    .header-fields {
+        flex: 1;
+    }
+    .charname {
+        height: 50px;
+    }
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime-local"]:focus {
+    box-shadow: 0 0 5px $oc-blue-8;
+}
+
+input.bb {
+    border-color: $oc-blue-8;
+    border-width: 1px;
+    border-radius: 0px;
+}
+
+input.centered {
+    text-align: center;
+}
+
+.sheet-tabs {
+    flex: 0;
+}
+
+.sheet-body,
+.sheet-body .tab,
+.sheet-body .tab .editor {
+    height: 100%;
+}
+
+.tox {
+    .tox-editor-container {
+        background: $oc-white;
+    }
+    .tox-edit-area {
+        padding: 0 8px;
+    }
+}

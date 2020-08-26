@@ -1,7 +1,7 @@
 {
     "name": "frostgrave",
     "title": "Frostgrave",
-    "description": "The Frostgrave system for FoundryVTT!",
+    "description": "The Frostgrave system for Foundry VTT",
     "version": "1.0.0",
     "minimumCoreVersion": "0.6.5",
     "compatibleCoreVersion": "0.6.5",
@@ -18,7 +18,7 @@
     }],
     "gridDistance": 5,
     "gridUnits": "ft",
-    "primaryTokenAttribute": "health",
+    "primaryTokenAttribute": "stats.health",
     "secondaryTokenAttribute": "",
     "url": "",
     "manifest": "",

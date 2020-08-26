@@ -5,23 +5,23 @@
         <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" width="100" />
         <div class="header-fields">
 
-            <div class="row">
-                <div class="col-9">
-                    <h1><input class="charname bb" name="name" type="text" value="{{actor.name}}" placeholder="Name" /></h1>
+            <div class="Grid">
+                <div class="Cell -9of12">
+                    <input class="text-lg border-sm" name="name" type="text" value="{{actor.name}}" placeholder="Name" />
                 </div>
-                <div class="col-3">
-                    <h1><input class="charname bb centered" type="text" name="data.mod" value="{{data.mod}}" data-dtype="Number" /></h1>
+                <div class="Cell -3of12">
+                    <input class="text-lg border-sm text-centered" type="text" name="data.mod" value="{{data.mod}}" data-dtype="Number" />
                 </div>
             </div>
 
-            <div class="row">
+            <div class="Grid -between">
                 {{#each data.stats as |stat key|}}
-                <div class="col-6">
-                    <div class="row">
+                <div class="Cell -5of12">
+                    <div class="Grid">
 
-                        <div class="col-6"><label for="data.stats.{{key}}.value" class="resource-label rollable" data-roll="d20+@stats.{{key}}.value+@mod" data-label="{{key}}">{{key}}</label></div>
-                        <div class="col-3"> <input class="bb centered" type="text" name="data.stats.{{key}}.value" value="{{stat.value}}" data-dtype="Number" /></div>
-                        <div class="col-3"><input class="bb centered" type="text" name="data.stats.{{key}}.real" value="{{stat.real}}" data-dtype="Number" /></div>
+                        <div class="Cell -6of12"><label for="data.stats.{{key}}.value" class="resource-label rollable" data-roll="d20+@stats.{{key}}.value+@mod" data-label="{{key}}">{{key}}</label></div>
+                        <div class="Cell -3of12"> <input class="border-sm text-centered" type="text" name="data.stats.{{key}}.value" value="{{stat.value}}" data-dtype="Number" /></div>
+                        <div class="Cell -3of12"><input class="border-sm text-centered" type="text" name="data.stats.{{key}}.real" value="{{stat.real}}" data-dtype="Number" /></div>
 
                     </div>
                 </div>

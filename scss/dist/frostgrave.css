@@ -2,10 +2,8 @@
 /* Global styles */
 .window-app {
   font-family: "PT Serif", serif;
-  -webkit-box-shadow: 0 0 20px #4dabf7;
   box-shadow: 0 0 20px #4dabf7;
 }
-
 .window-app .window-content {
   background: none;
   background-color: #e7f5ff;
@@ -18,76 +16,52 @@
 }
 
 .Grid {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 
 .Grid.\-top {
-  -webkit-box-align: start;
-  -ms-flex-align: start;
   align-items: flex-start;
 }
 
 .Grid.\-middle {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 
 .Grid.\-bottom {
-  -webkit-box-align: end;
-  -ms-flex-align: end;
   align-items: flex-end;
 }
 
 .Grid.\-stretch {
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
   align-items: stretch;
 }
 
 .Grid.\-baseline {
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
   align-items: baseline;
 }
 
 .Grid.\-left {
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
 }
 
 .Grid.\-center {
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
 }
 
 .Grid.\-right {
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
   justify-content: flex-end;
 }
 
 .Grid.\-between {
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
 .Grid.\-around {
-  -ms-flex-pack: distribute;
   justify-content: space-around;
 }
 
 .Cell {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  -ms-flex-negative: 0;
   flex-shrink: 0;
   padding-bottom: 5px;
 }
@@ -95,8 +69,6 @@
 .Cell.\-fill {
   width: 0;
   min-width: 0;
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
   flex-grow: 1;
 }
 
@@ -152,145 +124,96 @@
 .frostgrave .item-form {
   font-family: "PT Serif", serif;
 }
-
 .frostgrave .sheet-header {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 210px;
   flex: 0 0 210px;
   overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
   flex-direction: row;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
   margin-bottom: 10px;
 }
-
 .frostgrave .sheet-header .profile-img {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 130px;
   flex: 0 0 130px;
   height: 190px;
   margin-right: 10px;
-  -o-object-fit: cover;
   object-fit: cover;
   border-color: #1971c2;
   border-width: 1px;
 }
-
-.frostgrave input[type="text"]:focus,
-.frostgrave input[type="password"]:focus,
-.frostgrave input[type="datetime-local"]:focus {
-  -webkit-box-shadow: 0 0 5px #1971c2;
+.frostgrave .sheet-header .header-fields {
+  flex: 1;
+}
+.frostgrave input[type=text]:focus,
+.frostgrave input[type=password]:focus,
+.frostgrave input[type=datetime-local]:focus {
   box-shadow: 0 0 5px #1971c2;
 }
-
 .frostgrave input.border-sm {
   border-color: #1971c2;
   border-width: 1px;
   border-radius: 0px;
 }
-
 .frostgrave input.text-centered {
   text-align: center;
 }
-
 .frostgrave .sheet-tabs {
-  -webkit-box-flex: 0;
-  -ms-flex: 0;
   flex: 0;
 }
-
 .frostgrave .sheet-body,
 .frostgrave .sheet-body .tab,
 .frostgrave .sheet-body .tab .editor {
   height: 100%;
 }
-
 .frostgrave .tox .tox-editor-container {
   background: #ffffff;
 }
-
 .frostgrave .tox .tox-edit-area {
   padding: 0 8px;
 }
-
 .frostgrave .resource-label {
   font-weight: bold;
   text-transform: uppercase;
 }
-
-.frostgrave .text-sm {
-  font-size: 0.8rem;
-}
-
-.frostgrave .text-md {
-  font-size: 1rem;
-}
-
-.frostgrave .text-lg {
-  font-size: 1.5rem;
-}
-
 .frostgrave .tabs {
   height: 40px;
   border-top: 2px solid #1971c2;
   border-bottom: 2px solid #1971c2;
 }
-
 .frostgrave .tabs .item {
   line-height: 40px;
   font-weight: bold;
 }
-
 .frostgrave .tabs .item.active {
   text-decoration: underline;
   text-shadow: none;
 }
-
 .frostgrave .items-list {
   list-style: none;
   margin: 7px 0;
   padding: 0;
   overflow-y: auto;
 }
-
 .frostgrave .items-list .item-header {
   font-weight: bold;
 }
-
 .frostgrave .items-list .item {
   height: 30px;
   line-height: 24px;
   padding: 3px 0;
   border-bottom: 1px solid #1971c2;
 }
-
 .frostgrave .items-list .item .item-image {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 24px;
   flex: 0 0 24px;
   margin-right: 5px;
 }
-
 .frostgrave .items-list .item img {
   display: block;
 }
-
 .frostgrave .items-list .item-name {
   margin: 0;
 }
-
 .frostgrave .items-list .item-controls {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 86px;
   flex: 0 0 86px;
   text-align: right;
 }

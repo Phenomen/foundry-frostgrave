@@ -15,30 +15,24 @@
         height: 190px;
         margin-right: 10px;
         object-fit: cover;
-        border-color: $oc-blue-8;
+        border-color: $accent-color;
         border-width: 1px;
-    }
-    .header-fields {
-        flex: 1;
-    }
-    .charname {
-        height: 50px;
     }
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="datetime-local"]:focus {
-    box-shadow: 0 0 5px $oc-blue-8;
+    box-shadow: 0 0 5px $accent-color;
 }
 
-input.bb {
-    border-color: $oc-blue-8;
+input.border-sm {
+    border-color: $accent-color;
     border-width: 1px;
     border-radius: 0px;
 }
 
-input.centered {
+input.text-centered {
     text-align: center;
 }
 

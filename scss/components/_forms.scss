@@ -1,22 +1,13 @@
-.item-form {
-    font-family: $font-primary;
-}
-
-.sheet-header {
-    flex: 0 0 210px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin-bottom: 10px;
-    .profile-img {
-        flex: 0 0 130px;
-        height: 190px;
-        margin-right: 10px;
-        object-fit: cover;
-        border-color: $accent-color;
-        border-width: 1px;
+header {
+    display: flex !important;
+    background-image: none;
+    background-color: $accent-color;
+    a {
+        color: white;
+    }
+    a:hover {
+        color: white;
+        text-shadow: 0 0 5px white;
     }
 }
 
@@ -24,16 +15,6 @@ input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="datetime-local"]:focus {
     box-shadow: 0 0 5px $accent-color;
-}
-
-input.border-sm {
-    border-color: $accent-color;
-    border-width: 1px;
-    border-radius: 0px;
-}
-
-input.text-centered {
-    text-align: center;
 }
 
 .sheet-tabs {
@@ -48,7 +29,7 @@ input.text-centered {
 
 .tox {
     .tox-editor-container {
-        background: $oc-white;
+        background: white;
     }
     .tox-edit-area {
         padding: 0 8px;

@@ -1,29 +1,5 @@
-// .tabs {
-//   .item {
-//     background: rgba(0, 0, 0, 0.125);
-//     border: 1px solid;
-//     border-radius: 4px;
-//     margin: 0 10px 0;
-//     padding: 8px 4px;
-//     &:hover,
-//     &:focus {
-//       background: rgba(0, 0, 0, 0.125);
-//     }
-//     &.active {
-//       background: transparent;
-//     }
-//   }
-// }
-.tabs {
-    height: 40px;
-    border-top: 2px solid $accent-color;
-    border-bottom: 2px solid $accent-color;
-    .item {
-        line-height: 40px;
-        font-weight: bold;
-    }
-    .item.active {
-        text-decoration: underline;
-        text-shadow: none;
-    }
+.tabs .item.active {
+    text-shadow: none;
+    border-bottom-color: $accent-color;
+    color: $accent-color;
 }

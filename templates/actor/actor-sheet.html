@@ -1,40 +1,239 @@
-<form class="{{cssClass}} flexcol" autocomplete="off">
+<form class="{{cssClass}}" autocomplete="off">
 
-    {{!-- Sheet Header --}}
-    <header class="sheet-header">
-        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" width="100" />
-        <div class="header-fields">
+    <div class="columns">
 
-            <div class="Grid">
-                <div class="Cell -9of12">
-                    <input class="text-lg border-sm" name="name" type="text" value="{{actor.name}}" placeholder="Name" />
+        {{!-- PICTURE --}}
+        <div class="column is-one-quarter">
+            <figure class="image is-square">
+                <img class="is-cover" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+            </figure>
+        </div>
+        {{!-- END PICTURE --}}
+
+
+        <div class="column">
+            <div class="columns">
+
+                {{!-- NAME --}}
+                <div class="column">
+                    <label class="label">Name</label>
+                    <input class="input is-info is-large" name="name" type="text" value="{{actor.name}}" placeholder="Name" />
                 </div>
-                <div class="Cell -3of12">
-                    <input class="text-lg border-sm text-centered" type="text" name="data.mod" value="{{data.mod}}" data-dtype="Number" />
-                </div>
-            </div>
-
-            <div class="Grid -between">
-                {{#each data.stats as |stat key|}}
-                <div class="Cell -5of12">
-                    <div class="Grid">
-
-                        <div class="Cell -6of12"><label for="data.stats.{{key}}.value" class="resource-label rollable" data-roll="d20+@stats.{{key}}.value+@mod" data-label="{{key}}">{{key}}</label></div>
-                        <div class="Cell -3of12"> <input class="border-sm text-centered" type="text" name="data.stats.{{key}}.value" value="{{stat.value}}" data-dtype="Number" /></div>
-                        <div class="Cell -3of12"><input class="border-sm text-centered" type="text" name="data.stats.{{key}}.real" value="{{stat.real}}" data-dtype="Number" /></div>
-
+                {{!-- END NAME --}} {{!-- MOD --}}
+                <div class="column is-one-third">
+                    <label class="label">Mod</label>
+                    <div class="control has-icons-right">
+                        <input class="input is-success is-large" type="text" name="data.mod" value="{{data.mod}}" data-dtype="Number" />
+                        <span class="icon is-small is-right"><i class="fas fa-dice-d20"></i></span>
                     </div>
                 </div>
-                {{/each}}
+                {{!-- END MOD --}}
+
+            </div>
+
+            <div class="columns">
+
+                {{!-- SCHOOL --}}
+                <div class="column">
+                    <label class="label">Type</label>
+                    <div class="select is-small">
+                        <select>
+                          <option>Illusionist</option>
+                          <option>Necromancer</option>
+                        </select>
+                    </div>
+                </div>
+                {{!-- SCHOOL --}} {{!-- LEVEL --}}
+                <div class="column">
+                    <label class="label">Level</label>
+                    <input class="input" name="data.level" type="text" value="{{data.level}}" placeholder="Name" />
+                </div>
+                {{!-- END LEVEL --}} {{!-- LEVEL --}}
+                <div class="column">
+                    <label class="label">Scenario Exp</label>
+                    <input class="input" name="data.expscenario" type="text" value="{{data.expscenario}}" placeholder="Name" />
+                </div>
+                {{!-- END LEVEL --}} {{!-- LEVEL --}}
+                <div class="column">
+                    <label class="label">Total Exp</label>
+                    <input class="input" name="data.exptotal" type="text" value="{{data.exptotal}}" placeholder="Name" />
+                </div>
+                {{!-- END LEVEL --}}
+
             </div>
         </div>
-    </header>
+
+
+    </div>
+
+    <div class="columns">
+        {{!-- HEALTH --}}
+        <div class="column">
+            <div class="columns">
+                <div class="field is-horizontal">
+                    <div class="column is-one-quarter">
+                        <div class="field-label is-large mt-3">
+                            <label class="label" for="data.stats.health.value" data-label="health">Health</label>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field-body">
+                            <div class="field">
+                                <p class="help">Current</p>
+                                <input class="input is-danger" type="text" name="data.stats.health.value" value="{{data.stats.health.value}}" data-dtype="Number" />
+                            </div>
+                            <div class="field">
+                                <p class="help">Actual</p>
+                                <input class="input is-info" type="text" name="data.stats.health.act" value="{{data.stats.health.act}}" data-dtype="Number" />
+                            </div>
+                            <div class="field">
+                                <p class="help">Effective</p>
+                                <input class="input is-success" type="text" name="data.stats.health.max" value="{{data.stats.health.max}}" data-dtype="Number" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{!-- ARMOUR --}}
+        <div class="column">
+            <div class="columns">
+                <div class="field is-horizontal">
+                    <div class="column is-one-quarter">
+                        <div class="field-label is-large mt-3">
+                            <label class="label" for="data.stats.armour.value" data-label="armour">Armour</label>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field-body">
+                            <div class="field">
+                                <p class="help">Actual</p>
+                                <input class="input is-info" type="text" name="data.stats.armour.value" value="{{data.stats.armour.value}}" data-dtype="Number" />
+                            </div>
+                            <div class="field">
+                                <p class="help">Effective</p>
+                                <input class="input is-success" type="text" name="data.stats.armour.max" value="{{data.stats.armour.max}}" data-dtype="Number" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="columns">
+        {{!-- FIGHT --}}
+        <div class="column">
+            <div class="columns">
+                <div class="field is-horizontal">
+                    <div class="column is-one-quarter">
+                        <div class="field-label is-large mt-3">
+                            <label class="label rollable" for="data.stats.fight.value" data-roll="d20+@stats.fight.value+@mod" data-label="fight">Fight</label>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field-body">
+                            <div class="field">
+                                <p class="help">Actual</p>
+                                <input class="input is-info" type="text" name="data.stats.fight.value" value="{{data.stats.fight.value}}" data-dtype="Number" />
+                            </div>
+                            <div class="field">
+                                <p class="help">Effective</p>
+                                <input class="input is-success" type="text" name="data.stats.fight.max" value="{{data.stats.fight.max}}" data-dtype="Number" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{!-- SHOOT --}}
+        <div class="column">
+            <div class="columns">
+                <div class="field is-horizontal">
+                    <div class="column is-one-quarter">
+                        <div class="field-label is-large mt-3">
+                            <label class="label rollable" for="data.stats.shoot.value" data-roll="d20+@stats.shoot.value+@mod" data-label="shoot">Shoot</label>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field-body">
+                            <div class="field">
+                                <p class="help">Actual</p>
+                                <input class="input is-info" type="text" name="data.stats.shoot.value" value="{{data.stats.shoot.value}}" data-dtype="Number" />
+                            </div>
+                            <div class="field">
+                                <p class="help">Effective</p>
+                                <input class="input is-success" type="text" name="data.stats.shoot.max" value="{{data.stats.shoot.max}}" data-dtype="Number" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="columns">
+        {{!-- WILL --}}
+        <div class="column">
+            <div class="columns">
+                <div class="field is-horizontal">
+                    <div class="column is-one-quarter">
+                        <div class="field-label is-large mt-3">
+                            <label class="label rollable" for="data.stats.will.value" data-roll="d20+@stats.will.value+@mod" data-label="will">Will</label>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field-body">
+                            <div class="field">
+                                <p class="help">Actual</p>
+                                <input class="input is-info" type="text" name="data.stats.will.value" value="{{data.stats.will.value}}" data-dtype="Number" />
+                            </div>
+                            <div class="field">
+                                <p class="help">Effective</p>
+                                <input class="input is-success" type="text" name="data.stats.will.max" value="{{data.stats.will.max}}" data-dtype="Number" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{!-- MOVE --}}
+        <div class="column">
+            <div class="columns">
+                <div class="field is-horizontal">
+                    <div class="column is-one-quarter">
+                        <div class="field-label is-large mt-3">
+                            <label class="label" for="data.stats.move.value" data-label="move">Move</label>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field-body">
+                            <div class="field">
+                                <p class="help">Actual</p>
+                                <input class="input is-info" type="text" name="data.stats.move.value" value="{{data.stats.move.value}}" data-dtype="Number" />
+                            </div>
+                            <div class="field">
+                                <p class="help">Effective</p>
+                                <input class="input is-success" type="text" name="data.stats.move.max" value="{{data.stats.move.max}}" data-dtype="Number" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     {{!-- Sheet Tab Navigation --}}
-    <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="description">Description</a>
-        <a class="item" data-tab="items">Items</a>
-    </nav>
+    <div class="sheet-tabs tabs is-medium is-centered" data-group="primary">
+        <ul>
+            <li><a class="item" data-tab="description">Notes</a></li>
+            <li><a class="item" data-tab="items">Items</a></li>
+            <li><a class="item" data-tab="spells">Spells</a></li>
+        </ul>
+    </div>
 
     {{!-- Sheet Body --}}
     <section class="sheet-body">

@@ -33,9 +33,10 @@
                         "max": 4
                     },
                     "health": {
-                        "value": 10,
+                        "value": 14,
                         "min": 0,
-                        "max": 6
+                        "max": 14,
+                        "act": 14
                     }
                 }
             }

@@ -9,7 +9,7 @@ export class frostgraveActorSheet extends ActorSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["frostgrave", "sheet", "actor"],
             template: "systems/frostgrave/templates/actor/actor-sheet.html",
-            width: 600,
+            width: 650,
             height: 600,
             tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
         });

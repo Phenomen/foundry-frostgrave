@@ -1,18 +1,16 @@
 // Import utilities.
-@import 'utils/typography';
-@import 'utils/colors';
-@import 'utils/mixins';
 @import 'utils/variables';
 
 /* Global styles */
 
 @import 'global/window';
-@import 'global/grid';
 
-/* Styles limited to frostgrave sheets */
+/* Styles limited to Frostgrave sheets */
 
 .frostgrave {
+    @import 'utils/bulma';
     @import 'components/forms';
+    @import 'components/images';
     @import 'components/text';
     @import 'components/tabs';
     @import 'components/items';

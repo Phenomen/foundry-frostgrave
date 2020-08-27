@@ -1,5 +1,4 @@
 /* Global styles */
-@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 .window-app {
   -webkit-box-shadow: 0 0 20px #209cee;
   box-shadow: 0 0 20px #209cee;
@@ -26,6 +25,19 @@
 a:hover {
   color: #209cee;
   text-shadow: 0 0 5px white;
+}
+
+.editor-edit {
+  display: none;
+  font-size: 1.25em;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;
+  border: none;
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 /* Styles limited to Frostgrave sheets */
@@ -12450,16 +12462,10 @@ fieldset[disabled] .frostgrave .select select:hover {
   box-shadow: 0 0 5px #209cee;
 }
 
-.frostgrave .sheet-tabs {
-  -webkit-box-flex: 0;
-  -ms-flex: 0;
-  flex: 0;
-}
-
 .frostgrave .sheet-body,
 .frostgrave .sheet-body .tab,
 .frostgrave .sheet-body .tab .editor {
-  height: 100%;
+  height: 50%;
 }
 
 .frostgrave .tox .tox-editor-container {

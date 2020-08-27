@@ -47,7 +47,8 @@
             "level": 0,
             "exptotal": 0,
             "expscenario": 0,
-            "school": "",
+            "category": "",
+            "class": "",
             "homebase": "",
             "treasury": ""
         }

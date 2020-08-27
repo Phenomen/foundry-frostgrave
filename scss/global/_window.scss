@@ -1,5 +1,6 @@
 .window-app {
     box-shadow: 0 0 20px $accent-color;
+
     .window-content {
         background: none;
         background-color: hsl(206, 70%, 96%);
@@ -7,6 +8,7 @@
 }
 
 .rollable {
+
     &:hover,
     &:focus {
         color: black;
@@ -25,4 +27,16 @@
 a:hover {
     color: $accent-color;
     text-shadow: 0 0 5px white;
+}
+
+.editor-edit {
+    display: none;
+    font-size: 1.25em;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
 }

@@ -12465,7 +12465,7 @@ fieldset[disabled] .frostgrave .select select:hover {
 .frostgrave .sheet-body,
 .frostgrave .sheet-body .tab,
 .frostgrave .sheet-body .tab .editor {
-  height: 50%;
+  height: 100%;
 }
 
 .frostgrave .tox .tox-editor-container {

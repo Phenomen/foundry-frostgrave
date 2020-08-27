@@ -67,10 +67,13 @@
             "templates": [
                 "base"
             ],
+            "category": "",
             "damage": 0,
             "armour": 0,
             "range": 0,
-            "category": ""
+            "price": 0,
+            "sale": 0,
+            "spell": ""
         },
         "feature": {
             "templates": [
@@ -81,7 +84,9 @@
             "templates": [
                 "base"
             ],
-            "spellLevel": 1
+            "bcn": 1,
+            "improved": 0,
+            "school": ""
         }
     }
 }

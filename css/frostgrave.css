@@ -1,4 +1,5 @@
 /* Global styles */
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 .window-app {
   -webkit-box-shadow: 0 0 20px #209cee;
   box-shadow: 0 0 20px #209cee;
@@ -12472,6 +12473,7 @@ fieldset[disabled] .frostgrave .select select:hover {
 .frostgrave img.is-cover {
   -o-object-fit: cover;
   object-fit: cover;
+  border-color: #209cee;
 }
 
 .frostgrave h1,

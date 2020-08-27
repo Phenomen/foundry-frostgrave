@@ -3,7 +3,6 @@
  * @extends {ActorSheet}
  */
 export class frostgraveActorSheet extends ActorSheet {
-
     /** @override */
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
@@ -11,7 +10,11 @@ export class frostgraveActorSheet extends ActorSheet {
             template: "systems/frostgrave/templates/actor/actor-sheet.html",
             width: 650,
             height: 600,
-            tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
+            tabs: [{
+                navSelector: ".sheet-tabs",
+                contentSelector: ".sheet-body",
+                initial: "description",
+            }, ],
         });
     }
 
@@ -24,6 +27,12 @@ export class frostgraveActorSheet extends ActorSheet {
         //for (let attr of Object.values(data.data.attributes)) {
         //  attr.isCheckbox = attr.dtype === "Boolean";
         // }
+
+        // Prepare items.
+        if (this.actor.data.type == "character") {
+            this._prepareCharacterItems(data);
+        }
+
         return data;
     }
 
@@ -35,24 +44,23 @@ export class frostgraveActorSheet extends ActorSheet {
         if (!this.options.editable) return;
 
         // Add Inventory Item
-        html.find('.item-create').click(this._onItemCreate.bind(this));
+        html.find(".item-create").click(this._onItemCreate.bind(this));
 
-        // Update Inventory Item
-        html.find('.item-edit').click(ev => {
-            const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.getOwnedItem(li.data("itemId"));
+        // Edit Inventory Item
+        html.find(".item-edit").click((ev) => {
+            const card = $(ev.currentTarget).parents(".item-card");
+            const item = this.actor.getOwnedItem(card.data("item-id"));
             item.sheet.render(true);
         });
 
         // Delete Inventory Item
-        html.find('.item-delete').click(ev => {
-            const li = $(ev.currentTarget).parents(".item");
-            this.actor.deleteOwnedItem(li.data("itemId"));
-            li.slideUp(200, () => this.render(false));
+        html.find(".item-delete").click((ev) => {
+            const card = $(ev.currentTarget).parents(".item-card");
+            this.actor.deleteOwnedItem(card.data("item-id"));
         });
 
         // Rollable abilities.
-        html.find('.rollable').click(this._onRoll.bind(this));
+        html.find(".rollable").click(this._onRoll.bind(this));
     }
 
     /* -------------------------------------------- */
@@ -75,7 +83,7 @@ export class frostgraveActorSheet extends ActorSheet {
         const itemData = {
             name: name,
             type: type,
-            data: data
+            data: data,
         };
         // Remove the type from the dataset since it's in the itemData.type prop.
         delete itemData.data["type"];
@@ -96,12 +104,64 @@ export class frostgraveActorSheet extends ActorSheet {
 
         if (dataset.roll) {
             let roll = new Roll(dataset.roll, this.actor.data.data);
-            let label = dataset.label ? `Rolling ${dataset.label}` : '';
+            let label = dataset.label ? `${dataset.label} Roll` : "";
             roll.roll().toMessage({
                 speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-                flavor: label
+                flavor: label,
             });
         }
     }
 
+    /**
+     * Organize and classify Items for Character sheets.
+     *
+     * @param {Object} actorData The actor to prepare.
+     *
+     * @return {undefined}
+     */
+    _prepareCharacterItems(sheetData) {
+        const actorData = sheetData.actor;
+
+        // Initialize containers.
+        const gear = [];
+        const features = [];
+        const spells = {
+            0: [],
+            1: [],
+            2: [],
+            3: [],
+            4: [],
+            5: [],
+            6: [],
+            7: [],
+            8: [],
+            9: [],
+        };
+
+        // Iterate through items, allocating to containers
+        // let totalWeight = 0;
+        for (let i of sheetData.items) {
+            let item = i.data;
+            i.img = i.img || DEFAULT_TOKEN;
+            // Append to gear.
+            if (i.type === "item") {
+                gear.push(i);
+            }
+            // Append to features.
+            else if (i.type === "feature") {
+                features.push(i);
+            }
+            // Append to spells.
+            else if (i.type === "spell") {
+                if (i.data.spellLevel != undefined) {
+                    spells[i.data.spellLevel].push(i);
+                }
+            }
+        }
+
+        // Assign and return
+        actorData.gear = gear;
+        actorData.features = features;
+        actorData.spells = spells;
+    }
 }

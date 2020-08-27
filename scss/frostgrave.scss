@@ -1,17 +1,18 @@
+@charset "utf-8";
 // Import utilities.
-@import 'utils/variables';
+@import "utils/variables";
 
 /* Global styles */
 
-@import 'global/window';
+@import "global/window";
 
 /* Styles limited to Frostgrave sheets */
 
 .frostgrave {
-    @import 'utils/bulma';
-    @import 'components/forms';
-    @import 'components/images';
-    @import 'components/text';
-    @import 'components/tabs';
-    @import 'components/items';
+  @import "../node_modules/bulma/bulma.sass";
+  @import "components/forms";
+  @import "components/images";
+  @import "components/text";
+  @import "components/tabs";
+  @import "components/items";
 }

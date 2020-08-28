@@ -1,75 +1,97 @@
 <form class="{{cssClass}}" autocomplete="off">
-  <header class="sheet-header">
-    <img class="" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
-    <div class="">
-      <h1 class="">
-        <input
-          name="name"
-          type="text"
-          value="{{item.name}}"
-          placeholder="Name"
-        />
-      </h1>
-      <div class="">
-        <div>
-          <label class="label">Damage Modifier</label>
-          <input
-            class="input"
-            name="data.damage"
-            type="text"
-            value="{{data.damage}}"
-            data-dtype="Number"
-          />
-        </div>
-        <div>
-          <label class="label">Range</label>
-          <input
-            class="input"
-            name="data.range"
-            type="text"
-            value="{{data.range}}"
-            data-dtype="Number"
-          />
-        </div>
-        <div>
-          <label class="label">Armour</label>
-          <input
-            class="input"
-            name="data.armour"
-            type="text"
-            value="{{data.armour}}"
-            data-dtype="Number"
-          />
+
+  <div class="columns">
+
+    <div class="column is-one-quarter">
+      <figure class="image is-square">
+        <img class="is-cover" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+      </figure>
+    </div>
+
+    <div class="column">
+
+      <input class="input is-info mb-2" name="name" type="text" value="{{item.name}}" placeholder="Item name" />
+
+      <div class="select is-fullwidth">
+        <select name="data.category" data-dtype="String">
+          {{#select data.category}}
+            <option value="Weapon">Weapon</option>
+            <option value="Armour">Armour</option>
+            <option value="Potion">Potion</option>
+            <option value="Scroll">Scroll</option>
+            <option value="Grimoire">Grimoire</option>
+            <option value="Other">Other</option>
+          {{/select}}
+        </select>
+      </div>
+
+    </div>
+
+  </div>
+
+  {{#if (or (eq data.category "Weapon") (eq data.category "Armour"))}}
+    <div class="field">
+      <label class="label">Type</label>
+      <div class="control">
+        <div class="select is-fullwidth">
+          <select name="data.subcategory" data-dtype="String">
+            {{#select data.category}}
+              {{#if (eq data.category "Weapon")}}
+                <option value="None">None</option>
+                <option value="Dagger">Dagger</option>
+                <option value="Hand Weapon">Hand Weapon</option>
+                <option value="Two-Handed Weapon">Two-Handed Weapon</option>
+                <option value="Staff">Staff</option>
+                <option value="Bow">Bow</option>
+                <option value="Crossbow">Crossbow</option>
+                <option value="Quiver">Quiver</option>
+                <option value="Unarmed">Unarmed</option>
+                <option value="Natural Weapon">Natural Weapon</option>
+              {{/if}}
+              {{#if (eq data.category "Armour")}}
+                <option value="Light Armour">Light Armour</option>
+                <option value="Heavy Armour">Heavy Armour</option>
+                <option value="Shield">Shield</option>
+                <option value="Natural Armour">Natural Armour</option>
+              {{/if}}
+            {{/select}}
+          </select>
         </div>
       </div>
     </div>
-  </header>
+  {{/if}}
 
-  {{!-- Sheet Tab Navigation --}}
-  <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description">Description</a>
-    <a class="item" data-tab="attributes">Attributes</a>
-  </nav>
+  {{#if (eq data.category "Weapon")}}
+    <div class="field">
+      <label class="label">Damage Modifier</label>
+      <div class="control">
+        <input class="input" name="data.damage" type="text" value="{{data.damage}}" data-dtype="Number">
+      </div>
+    </div>
 
-  {{!-- Sheet Body --}}
-  <section class="sheet-body">
-    {{!-- Description Tab --}}
-    <div class="tab" data-group="primary" data-tab="description">
-      <label class="label">Category</label>
-      <input
-        class="input"
-        name="data.category"
-        type="text"
-        value="{{data.category}}"
-      />
+    <div class="field">
+      <label class="label">Maximum Range</label>
+      <div class="control">
+        <input class="input" name="data.range" type="text" value="{{data.range}}" data-dtype="Number">
+      </div>
+    </div>
+  {{/if}}
 
-      {{editor content=data.description target="data.description" button=true
+  {{#if (eq data.category "Armour")}}
+    <div class="field">
+      <label class="label">Armour</label>
+      <div class="control">
+        <input class="input" name="data.armour" type="text" value="{{data.armour}}" data-dtype="Number">
+      </div>
+    </div>
+  {{/if}}
+
+  <div class="editor">
+    <h4 class="title is-4">Notes</h4>
+
+    {{editor content=data.description target="data.description" button=true
       owner=owner editable=editable}}
-    </div>
 
-    {{!-- Attributes Tab --}}
-    <div class="tab attributes" data-group="primary" data-tab="attributes">
-      {{!-- As you add new fields, add them in here! --}}
-    </div>
-  </section>
+  </div>
+
 </form>

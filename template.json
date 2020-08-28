@@ -78,13 +78,14 @@
             "templates": [
                 "base"
             ],
-            "category": "Item",
-            "damage": 0,
-            "armour": 0,
-            "range": 0,
-            "price": 0,
-            "sale": 0,
-            "spell": ""
+            "category": "Other",
+            "subcategory": "None",
+            "damage": null,
+            "armour": null,
+            "range": null,
+            "price": null,
+            "sale": null,
+            "spell": null
         },
         "feature": {
             "templates": [

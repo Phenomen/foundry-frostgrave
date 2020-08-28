@@ -10,11 +10,13 @@
         </div>
 
         <div class="column">
-            <label class="label">Name</label>
             <input class="input is-info is-medium" name="name" type="text" value="{{actor.name}}" placeholder="Name" />
-            <div class="container pt-2">
-                <div class="select">
-                    <select name="data.category" data-dtype="String">
+
+            <div class="columns pt-2">
+
+                <div class="column is-two-fifths">
+                    <div class="select is-fullwidth">
+                        <select name="data.category" data-dtype="String">
                         {{#select data.category}}
                             <option value="Wizard">Wizard</option>
                             <option value="Apprentice">Apprentice</option>
@@ -22,10 +24,11 @@
                             <option value="Creature">Creature</option>
                         {{/select}}
                     </select>
+                    </div>
                 </div>
-
-                <div class="select">
-                    <select name="data.class" data-dtype="String">
+                <div class="column is-two-fifths">
+                    <div class="select is-fullwidth">
+                        <select name="data.class" data-dtype="String">
                         {{#select data.class}}
                             {{#if (or (eq data.category "Wizard") (eq data.category "Apprentice"))}}
                                 <option value="Chronomancer">Chronomancer</option>
@@ -49,217 +52,80 @@
                             {{/if}}
                         {{/select}}
                     </select>
+                    </div>
                 </div>
 
             </div>
         </div>
-
-        <div class="column is-one-quarter">
-            <label class="label">Roll Mod</label>
-            <div class="control has-icons-right">
-                <input class="input is-success is-medium" type="text" name="data.mod" value="{{data.mod}}"
-                    data-dtype="Number" />
-                <span class="icon is-small is-right"><i class="fas fa-dice-d20"></i></span>
-            </div>
-        </div>
-
     </div>
 
 
 
-    <div class="columns">
+    <div class="columns is-multiline">
 
-        {{!-- MOVE --}}
-        <div class="column py-2">
-            <div class="columns">
-                <div class="field is-horizontal">
-                    <div class="column is-one-quarter py-2">
-                        <div class="field-label is-medium mt-4">
-                            <label class="label rollable" for="data.stats.move.value"
-                                data-roll="d20+@stats.move.max+@mod" data-label="Moving">Move</label>
-                        </div>
-                    </div>
-                    <div class="column py-2">
-                        <div class="field-body">
-                            <div class="field">
-                                <p class="help">Actual</p>
-                                <input class="input is-info" type="text" name="data.stats.move.value"
-                                    value="{{data.stats.move.value}}" data-dtype="Number" />
-                            </div>
-                            <div class="field">
-                                <p class="help">Effective</p>
-                                <input class="input is-success" type="text" name="data.stats.move.max"
-                                    value="{{data.stats.move.max}}" data-dtype="Number" />
-                            </div>
-                        </div>
-                    </div>
+        <div class="column is-half py-1">
+
+            <div class="columns is-variable is-1">
+
+                <div class="column is-one-quarter">
+                    <p class="control">
+                        <p class="help">&nbsp;</p>
+                        <button class="button is-info is-fullwidth rollable is-capitalized" data-roll="d20+@data.health.value" data-label="{{data.health.rollname}}">Health</button>
+                    </p>
                 </div>
+                <div class="column is-one-quarter">
+                    <p class="control">
+                        <p class="help">Actual</p>
+                        <input class="input" type="text" name="data.health.actual" value="{{data.health.actual}}" data-dtype="Number">
+                    </p>
+                </div>
+                <div class="column is-one-quarter">
+                    <p class="help">Effective</p>
+                    <p class="control">
+                        <input class="input" type="text" name="data.health.max" value="{{data.health.max}}" data-dtype="Number">
+                    </p>
+                </div>
+                <div class="column is-one-quarter">
+                    <p class="help">Current</p>
+                    <p class="control">
+                        <input class="input is-danger" type="text" name="data.health.value" value="{{data.health.value}}" data-dtype="Number">
+                    </p>
+                </div>
+
             </div>
+
         </div>
 
-        {{!-- HEALTH --}}
-        <div class="column py-2">
-            <div class="columns">
-                <div class="field is-horizontal">
-                    <div class="column is-one-quarter py-2">
-                        <div class="field-label is-medium mt-4">
-                            <label class="label rollable" for="data.stats.health.value"
-                                data-roll="d20+@stats.health.value+@mod" data-label="Health">Health</label>
-                        </div>
-                    </div>
-                    <div class="column py-2">
-                        <div class="field-body">
-                            <div class="field">
-                                <p class="help">Actual</p>
-                                <input class="input is-info" type="text" name="data.stats.health.act"
-                                    value="{{data.stats.health.act}}" data-dtype="Number" />
-                            </div>
-                            <div class="field">
-                                <p class="help">Effective</p>
-                                <input class="input is-success" type="text" name="data.stats.health.max"
-                                    value="{{data.stats.health.max}}" data-dtype="Number" />
-                            </div>
-                            <div class="field">
-                                <p class="help">Current</p>
-                                <input class="input is-danger" type="text" name="data.stats.health.value"
-                                    value="{{data.stats.health.value}}" data-dtype="Number" />
-                            </div>
-                        </div>
-                    </div>
+        {{#each data.stats as |stat key|}}
+        <div class="column is-half py-1">
+
+            <div class="columns is-variable is-1">
+
+                <div class="column">
+                    <p class="control is-one-third">
+                        <p class="help">&nbsp;</p>
+                        <button class="button is-info is-fullwidth rollable is-capitalized" data-roll="d20+@stats.{{key}}.effective" data-label="{{stat.rollname}}">{{key}}</button>
+                    </p>
                 </div>
-            </div>
-        </div>
-
-    </div>
-
-
-    <div class="columns">
-
-        {{!-- FIGHT --}}
-        <div class="column py-2">
-            <div class="columns">
-                <div class="field is-horizontal">
-                    <div class="column is-one-quarter py-2">
-                        <div class="field-label is-medium mt-4">
-                            <label class="label rollable" for="data.stats.fight.value"
-                                data-roll="d20+@stats.fight.max+@mod" data-label="Combat">Fight</label>
-                        </div>
-                    </div>
-                    <div class="column py-2">
-                        <div class="field-body">
-                            <div class="field">
-                                <p class="help">Actual</p>
-                                <input class="input is-info" type="text" name="data.stats.fight.value"
-                                    value="{{data.stats.fight.value}}" data-dtype="Number" />
-                            </div>
-                            <div class="field">
-                                <p class="help">Effective</p>
-                                <input class="input is-success" type="text" name="data.stats.fight.max"
-                                    value="{{data.stats.fight.max}}" data-dtype="Number" />
-                            </div>
-                            <div class="field">
-                                <p class="help">Dmg Bonus</p>
-                                <input class="input is-danger" type="text" name="data.stats.fight.bonus"
-                                    value="{{data.stats.fight.bonus}}" data-dtype="Number" />
-                            </div>
-                        </div>
-                    </div>
+                <div class="column is-one-third">
+                    <p class="control">
+                        <p class="help">Actual</p>
+                        <input class="input" type="text" name="data.stats.{{key}}.actual" value="{{stat.actual}}" data-dtype="Number">
+                    </p>
                 </div>
-            </div>
-        </div>
-
-        {{!-- SHOOT --}}
-        <div class="column py-2">
-            <div class="columns">
-                <div class="field is-horizontal">
-                    <div class="column is-one-quarter py-2">
-                        <div class="field-label is-medium mt-4">
-                            <label class="label rollable" for="data.stats.shoot.value"
-                                data-roll="d20+@stats.shoot.max+@mod" data-label="Shooting">Shoot</label>
-                        </div>
-                    </div>
-                    <div class="column py-2">
-                        <div class="field-body">
-                            <div class="field">
-                                <p class="help">Actual</p>
-                                <input class="input is-info" type="text" name="data.stats.shoot.value"
-                                    value="{{data.stats.shoot.value}}" data-dtype="Number" />
-                            </div>
-                            <div class="field">
-                                <p class="help">Effective</p>
-                                <input class="input is-success" type="text" name="data.stats.shoot.max"
-                                    value="{{data.stats.shoot.max}}" data-dtype="Number" />
-                            </div>
-                            <div class="field">
-                                <p class="help">Dmg Bonus</p>
-                                <input class="input is-danger" type="text" name="data.stats.shoot.bonus"
-                                    value="{{data.stats.shoot.bonus}}" data-dtype="Number" />
-                            </div>
-                        </div>
-                    </div>
+                <div class="column is-one-third">
+                    <p class="help">Effective</p>
+                    <p class="control">
+                        <input class="input" type="text" name="data.stats.{{key}}.effective" value="{{stat.effective}}" data-dtype="Number">
+                    </p>
                 </div>
+
             </div>
+
         </div>
+        {{/each}}
 
-    </div>
 
-    <div class="columns">
-
-        {{!-- WILL --}}
-        <div class="column py-2">
-            <div class="columns">
-                <div class="field is-horizontal">
-                    <div class="column is-one-quarter py-2">
-                        <div class="field-label is-medium mt-4">
-                            <label class="label rollable" for="data.stats.will.value"
-                                data-roll="d20+@stats.will.max+@mod" data-label="Will">Will</label>
-                        </div>
-                    </div>
-                    <div class="column py-2">
-                        <div class="field-body">
-                            <div class="field">
-                                <p class="help">Actual</p>
-                                <input class="input is-info" type="text" name="data.stats.will.value"
-                                    value="{{data.stats.will.value}}" data-dtype="Number" />
-                            </div>
-                            <div class="field">
-                                <p class="help">Effective</p>
-                                <input class="input is-success" type="text" name="data.stats.will.max"
-                                    value="{{data.stats.will.max}}" data-dtype="Number" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {{!-- ARMOUR --}}
-        <div class="column py-2">
-            <div class="columns">
-                <div class="field is-horizontal">
-                    <div class="column is-one-quarter py-2">
-                        <div class="field-label is-medium mt-4">
-                            <label class="label rollable" for="data.stats.armour.value"
-                                data-roll="d20+@stats.armour.max+@mod" data-label="Armour">Armour</label>
-                        </div>
-                    </div>
-                    <div class="column py-2">
-                        <div class="field-body">
-                            <div class="field">
-                                <p class="help">Actual</p>
-                                <input class="input is-info" type="text" name="data.stats.armour.value"
-                                    value="{{data.stats.armour.value}}" data-dtype="Number" />
-                            </div>
-                            <div class="field">
-                                <p class="help">Effective</p>
-                                <input class="input is-success" type="text" name="data.stats.armour.max"
-                                    value="{{data.stats.armour.max}}" data-dtype="Number" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </div>
 
@@ -281,32 +147,28 @@
         <div class="tab biography" data-group="primary" data-tab="description">
             {{#if (eq data.category "Wizard")}}
 
-                <div class="columns">
+            <div class="columns">
 
-                    {{!-- LEVEL --}}
-                    <div class="column">
-                        <label class="label">Level</label>
-                        <input class="input" name="data.level" type="text" value="{{data.level}}" placeholder="Name" />
-                    </div>
-                    {{!-- END LEVEL --}} {{!-- LEVEL --}}
-                    <div class="column">
-                        <label class="label">Scenario Exp</label>
-                        <input class="input" name="data.expscenario" type="text" value="{{data.expscenario}}"
-                            placeholder="Name" />
-                    </div>
-                    {{!-- END LEVEL --}} {{!-- LEVEL --}}
-                    <div class="column">
-                        <label class="label">Total Exp</label>
-                        <input class="input" name="data.exptotal" type="text" value="{{data.exptotal}}"
-                            placeholder="Name" />
-                    </div>
-                    {{!-- END LEVEL --}}
 
+                <div class="column">
+                    <label class="label">Level</label>
+                    <input class="input" name="data.level" type="text" value="{{data.level}}" />
                 </div>
 
-            {{/if}}
+                <div class="column">
+                    <label class="label">Scenario Exp</label>
+                    <input class="input" name="data.expscenario" type="text" value="{{data.expscenario}}" />
+                </div>
 
-            {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
+                <div class="column">
+                    <label class="label">Total Exp</label>
+                    <input class="input" name="data.exptotal" type="text" value="{{data.exptotal}}" />
+                </div>
+
+
+            </div>
+
+            {{/if}} {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
         </div>
 
         {{!-- Owned Items Tab --}}
@@ -320,49 +182,46 @@
 
             <div class="columns is-multiline">
                 {{#each actor.items as |item id|}}
-                    <div class="column is-half item-card" data-item-id="{{item._id}}">
-                        <div class="box">
-                            <article class="media">
-                                <div class="media-left">
-                                    <figure class="image is-64x64 is-square">
-                                        <img class="is-cover" src="{{item.img}}" title="{{item.name}}">
-                                    </figure>
-                                    <nav class="level is-mobile pt-2">
-                                        <div class="level-left">
-                                            <a class="level-item item-edit" aria-label="edit">
-                                                <span class="icon is-small">
+                <div class="column is-half item-card" data-item-id="{{item._id}}">
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                <figure class="image is-64x64 is-square">
+                                    <img class="is-cover" src="{{item.img}}" title="{{item.name}}">
+                                </figure>
+                                <nav class="level is-mobile pt-2">
+                                    <div class="level-left">
+                                        <a class="level-item item-edit" aria-label="edit">
+                                            <span class="icon is-small">
                                                     <i class="fas fa-edit" aria-hidden="true"></i>
                                                 </span>
-                                            </a>
-                                            <a class="level-item item-delete" aria-label="delete">
-                                                <span class="icon is-small">
+                                        </a>
+                                        <a class="level-item item-delete" aria-label="delete">
+                                            <span class="icon is-small">
                                                     <i class="fas fa-times" aria-hidden="true"></i>
                                                 </span>
-                                            </a>
-                                        </div>
-                                    </nav>
-                                </div>
-                                <div class="media-content">
-                                    <div class="content">
-                                        <p class="is-capitalized has-text-weight-bold">{{item.name}}</p>
-                                        <p>
-                                            <span class="tag is-light">{{item.data.category}}</span>
-                                            {{#if (ne item.data.damage 0)}}
-                                                <span class="tag is-light">Damage: {{item.data.damage}}</span> {{/if}}
-                                            {{#if (ne item.data.range 0)}}
-                                                <span class="tag is-light">Range: {{item.data.range}}</span> {{/if}}
-                                            {{#if (ne item.data.armour 0)}}
-                                                <span class="tag is-light">Armor: {{item.data.armour}}</span> {{/if}}
-                                        </p>
-                                        <p>
-                                        <div class="content">{{formatHTMLMessage item.data.description}}</div>
-                                        </p>
+                                        </a>
                                     </div>
-
+                                </nav>
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p class="is-capitalized has-text-weight-bold">{{item.name}}</p>
+                                    <p>
+                                        <span class="tag is-light">{{item.data.category}}</span> {{#if (ne item.data.damage 0)}}
+                                        <span class="tag is-light">Damage: {{item.data.damage}}</span> {{/if}} {{#if (ne item.data.range 0)}}
+                                        <span class="tag is-light">Range: {{item.data.range}}</span> {{/if}} {{#if (ne item.data.armour 0)}}
+                                        <span class="tag is-light">Armor: {{item.data.armour}}</span> {{/if}}
+                                    </p>
+                                    <p>
+                                        <div class="content">{{formatHTMLMessage item.data.description}}</div>
+                                    </p>
                                 </div>
-                            </article>
-                        </div>
+
+                            </div>
+                        </article>
                     </div>
+                </div>
                 {{/each}}
             </div>
 

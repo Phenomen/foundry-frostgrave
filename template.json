@@ -8,34 +8,44 @@
                 "biography": "",
                 "model": "",
                 "mod": 0,
+                "health": {
+                    "value": 14,
+                    "min": 0,
+                    "max": 14,
+                    "actual": 14,
+                    "rollname": "Health"
+                },
                 "stats": {
                     "move": {
-                        "value": 6,
-                        "max": 6
-                    },
-                    "fight": {
-                        "value": 2,
-                        "max": 2,
-                        "bonus": 0
-                    },
-                    "shoot": {
-                        "value": 0,
-                        "max": 0,
-                        "bonus": 0
+                        "actual": 6,
+                        "effective": 6,
+                        "rollname": "Movement"
                     },
                     "armour": {
-                        "value": 10,
-                        "max": 10
+                        "actual": 10,
+                        "effective": 10,
+                        "bonus": 0,
+                        "gear": "",
+                        "rollname": "Armour"
                     },
                     "will": {
-                        "value": 4,
-                        "max": 4
+                        "actual": 4,
+                        "effective": 4,
+                        "rollname": "Will"
                     },
-                    "health": {
-                        "value": 14,
-                        "min": 0,
-                        "max": 14,
-                        "act": 14
+                    "fight": {
+                        "actual": 2,
+                        "effective": 2,
+                        "bonus": 0,
+                        "gear": "",
+                        "rollname": "Combat"
+                    },
+                    "shoot": {
+                        "actual": 0,
+                        "effective": 0,
+                        "bonus": 0,
+                        "gear": "",
+                        "rollname": "Shooting"
                     }
                 }
             }
@@ -47,7 +57,7 @@
             "level": 0,
             "exptotal": 0,
             "expscenario": 0,
-            "category": "",
+            "category": "Wizard",
             "class": "",
             "homebase": "",
             "treasury": ""
@@ -68,7 +78,7 @@
             "templates": [
                 "base"
             ],
-            "category": "",
+            "category": "Item",
             "damage": 0,
             "armour": 0,
             "range": 0,

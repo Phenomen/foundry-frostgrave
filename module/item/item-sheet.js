@@ -7,15 +7,13 @@ export class frostgraveItemSheet extends ItemSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["frostgrave", "sheet", "item"],
-      width: 520,
-      height: 480,
-      tabs: [
-        {
-          navSelector: ".sheet-tabs",
-          contentSelector: ".sheet-body",
-          initial: "description",
-        },
-      ],
+      width: 450,
+      height: 500,
+      tabs: [{
+        navSelector: ".sheet-tabs",
+        contentSelector: ".sheet-body",
+        initial: "attributes",
+      }, ],
     });
   }
 

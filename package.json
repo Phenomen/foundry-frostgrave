@@ -21,6 +21,7 @@
         "gulp-sourcemaps": "^2.6.5"
     },
     "devDependencies": {
-        "bulma": "^0.9.0"
+        "bulma": "^0.9.0",
+        "prettier": "2.1.1"
     }
 }

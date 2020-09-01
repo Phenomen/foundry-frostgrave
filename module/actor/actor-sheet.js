@@ -13,7 +13,7 @@ export class frostgraveActorSheet extends ActorSheet {
             tabs: [{
                 navSelector: ".sheet-tabs",
                 contentSelector: ".sheet-body",
-                initial: "description",
+                initial: "notes",
             }, ],
         });
     }
@@ -106,7 +106,9 @@ export class frostgraveActorSheet extends ActorSheet {
             let roll = new Roll(dataset.roll, this.actor.data.data);
             let label = dataset.label ? `${dataset.label} Roll` : "";
             roll.roll().toMessage({
-                speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+                speaker: ChatMessage.getSpeaker({
+                    actor: this.actor
+                }),
                 flavor: label,
             });
         }

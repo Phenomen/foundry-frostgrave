@@ -6,7 +6,6 @@
         "templates": {
             "base": {
                 "biography": "",
-                "model": "",
                 "mod": 0,
                 "health": {
                     "value": 14,
@@ -55,10 +54,11 @@
                 "base"
             ],
             "level": 0,
-            "exptotal": 0,
+            "expbanked": 0,
             "expscenario": 0,
+            "exptotal": 0,
             "category": "Wizard",
-            "class": "",
+            "class": "Chronomancer",
             "homebase": "",
             "treasury": ""
         }
@@ -83,9 +83,10 @@
             "damage": null,
             "armour": null,
             "range": null,
+            "effect": null,
             "price": null,
             "sale": null,
-            "spell": null
+            "ingredient": null
         },
         "feature": {
             "templates": [

@@ -10,8 +10,6 @@
 }
 
 .rollable:hover, .rollable:focus {
-  color: black;
-  text-shadow: 0 0 10px #209cee;
   cursor: pointer;
 }
 
@@ -25,6 +23,13 @@
 a:hover {
   color: #209cee;
   text-shadow: 0 0 5px white;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime-local"]:focus {
+  -webkit-box-shadow: 0 0 5px #209cee;
+  box-shadow: 0 0 5px #209cee;
 }
 
 .editor-edit {
@@ -12455,16 +12460,9 @@ fieldset[disabled] .frostgrave .select select:hover {
   text-shadow: 0 0 5px white;
 }
 
-.frostgrave input[type="text"]:focus,
-.frostgrave input[type="password"]:focus,
-.frostgrave input[type="datetime-local"]:focus {
-  -webkit-box-shadow: 0 0 5px #209cee;
-  box-shadow: 0 0 5px #209cee;
-}
-
 .frostgrave .sheet-body,
 .frostgrave .sheet-body .tab,
-.frostgrave .sheet-body .tab .editor {
+.frostgrave .sheet-body, .frostgrave .editor {
   height: 100%;
 }
 
@@ -12473,7 +12471,14 @@ fieldset[disabled] .frostgrave .select select:hover {
 }
 
 .frostgrave .tox .tox-edit-area {
-  padding: 0 8px;
+  padding: 4px 8px;
+}
+
+.frostgrave form .notes,
+.frostgrave form .hint {
+  font-size: 1rem;
+  line-height: 1.4rem;
+  color: #363636;
 }
 
 .frostgrave img.is-cover {

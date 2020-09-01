@@ -24,7 +24,7 @@
     ],
     "gridDistance": 5,
     "gridUnits": "ft",
-    "primaryTokenAttribute": "stats.health.value",
+    "primaryTokenAttribute": "health.value",
     "secondaryTokenAttribute": "",
     "url": "",
     "manifest": "",

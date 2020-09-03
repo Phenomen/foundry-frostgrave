@@ -13,7 +13,7 @@ export class frostgraveActorSheet extends ActorSheet {
             tabs: [{
                 navSelector: ".sheet-tabs",
                 contentSelector: ".sheet-body",
-                initial: "notes",
+                initial: "items",
             }, ],
         });
     }

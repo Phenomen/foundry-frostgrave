@@ -59,8 +59,10 @@
             "exptotal": 0,
             "category": "Wizard",
             "class": "Chronomancer",
-            "homebase": "",
-            "treasury": ""
+            "baselocation": "",
+            "baseresources": "",
+            "basetreasury": 0,
+            "levellog": "<ul><li>Level 1:</li><li>Level 2:</li><li>Level 3:</li><li>Level 4:</li><li>Level 5:</li><li>Level 6:</li><li>Level 7:</li><li>Level 8:</li><li>Level 9:</li><li>Level 10:</li></ul>"
         }
     },
     "Item": {

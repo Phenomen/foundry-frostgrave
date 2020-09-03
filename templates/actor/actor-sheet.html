@@ -18,10 +18,11 @@
                     <div class="select is-fullwidth">
                         <select name="data.category" data-dtype="String">
                             {{#select data.category}}
-                            <option value="Wizard">Wizard</option>
-                            <option value="Apprentice">Apprentice</option>
-                            <option value="Soldier">Soldier</option>
-                            <option value="Creature">Creature</option>
+                                <option value="Wizard">Wizard</option>
+                                <option value="Apprentice">Apprentice</option>
+                                <option value="Soldier">Soldier</option>
+                                <option value="Creature">Creature</option>
+                                <option value="Base">Base</option>
                             {{/select}}
                         </select>
                     </div>
@@ -31,26 +32,29 @@
                     <div class="select is-fullwidth">
                         <select name="data.class" data-dtype="String">
                             {{#select data.class}}
-                            {{#if (or (eq data.category "Wizard") (eq data.category "Apprentice"))}}
-                            <option value="Chronomancer">Chronomancer</option>
-                            <option value="Elementalist">Elementalist</option>
-                            <option value="Enchanter">Enchanter</option>
-                            <option value="Illusionist">Illusionist</option>
-                            <option value="Necromancer">Necromancer</option>
-                            <option value="Sigilist">Sigilist</option>
-                            <option value="Soothsayer">Soothsayer</option>
-                            <option value="Summoner">Summoner</option>
-                            <option value="Thaumaturge">Thaumaturge</option>
-                            <option value="Witch">Witch</option>
-                            {{/if}}
-                            {{#if (eq data.category "Soldier")}}
-                            <option value="Standard">Standard</option>
-                            <option value="Specialist">Specialist</option>
-                            {{/if}}
-                            {{#if (eq data.category "Creature")}}
-                            <option value="Uncontrolled">Uncontrolled</option>
-                            <option value="Controlled">Controlled</option>
-                            {{/if}}
+                                {{#if (or (eq data.category "Wizard") (eq data.category "Apprentice"))}}
+                                    <option value="Chronomancer">Chronomancer</option>
+                                    <option value="Elementalist">Elementalist</option>
+                                    <option value="Enchanter">Enchanter</option>
+                                    <option value="Illusionist">Illusionist</option>
+                                    <option value="Necromancer">Necromancer</option>
+                                    <option value="Sigilist">Sigilist</option>
+                                    <option value="Soothsayer">Soothsayer</option>
+                                    <option value="Summoner">Summoner</option>
+                                    <option value="Thaumaturge">Thaumaturge</option>
+                                    <option value="Witch">Witch</option>
+                                {{/if}}
+                                {{#if (eq data.category "Soldier")}}
+                                    <option value="Standard">Standard</option>
+                                    <option value="Specialist">Specialist</option>
+                                {{/if}}
+                                {{#if (eq data.category "Creature")}}
+                                    <option value="Uncontrolled">Uncontrolled</option>
+                                    <option value="Controlled">Controlled</option>
+                                {{/if}}
+                                {{#if (eq data.category "Base")}}
+                                    <option value="Homebase">Homebase</option>
+                                {{/if}}
                             {{/select}}
                         </select>
                     </div>
@@ -60,125 +64,134 @@
         </div>
     </div>
 
+    {{#if (ne data.category "Base")}}
 
+        <div class="columns is-multiline">
 
-    <div class="columns is-multiline">
+            <div class="column is-half py-1">
 
-        <div class="column is-half py-1">
+                <div class="columns is-variable is-1">
 
-            <div class="columns is-variable is-1">
+                    <div class="column is-6">
+                        <p class="control">
+                            <span class="help">&nbsp;</span>
+                            <button class="button is-danger is-outlined is-fullwidth rollable is-capitalized"
+                                data-roll="d20+@data.health.value" data-label="{{data.health.rollname}}"> <span
+                                    class="icon">
+                                    <i class="fas fa-dice-d20"></i>
+                                </span>
+                                <span>
+                                    Health
+                                </span> </button>
+                        </p>
+                    </div>
+                    <div class="column is-2">
+                        <p class="control">
+                            <span class="help">Actual</span>
+                            <input class="input" type="text" name="data.health.actual" value="{{data.health.actual}}"
+                                data-dtype="Number">
+                        </p>
+                    </div>
+                    <div class="column is-2">
+                        <span class="help">Effective</span>
+                        <p class="control">
+                            <input class="input" type="text" name="data.health.max" value="{{data.health.max}}"
+                                data-dtype="Number">
+                        </p>
+                    </div>
+                    <div class="column is-2">
+                        <span class="help">Current</span>
+                        <p class="control">
+                            <input class="input is-danger" type="text" name="data.health.value"
+                                value="{{data.health.value}}" data-dtype="Number">
+                        </p>
+                    </div>
 
-                <div class="column is-6">
-                    <p class="control">
-                        <span class="help">&nbsp;</span>
-                        <button class="button is-danger is-outlined is-fullwidth rollable is-capitalized"
-                            data-roll="d20+@data.health.value" data-label="{{data.health.rollname}}"> <span
-                                class="icon">
-                                <i class="fas fa-dice-d20"></i>
-                            </span>
-                            <span>
-                                Health
-                            </span> </button>
-                    </p>
-                </div>
-                <div class="column is-2">
-                    <p class="control">
-                        <span class="help">Actual</span>
-                        <input class="input" type="text" name="data.health.actual" value="{{data.health.actual}}"
-                            data-dtype="Number">
-                    </p>
-                </div>
-                <div class="column is-2">
-                    <span class="help">Effective</span>
-                    <p class="control">
-                        <input class="input" type="text" name="data.health.max" value="{{data.health.max}}"
-                            data-dtype="Number">
-                    </p>
-                </div>
-                <div class="column is-2">
-                    <span class="help">Current</span>
-                    <p class="control">
-                        <input class="input is-danger" type="text" name="data.health.value"
-                            value="{{data.health.value}}" data-dtype="Number">
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-
-        {{#each data.stats as |stat key|}}
-        <div class="column is-half py-1">
-
-            <div class="columns is-variable is-1">
-
-                <div class="column">
-                    <p class="control is-6">
-                        <span class="help">&nbsp;
-                    </p>
-                    <button class="button is-info is-outlined is-fullwidth rollable is-capitalized"
-                        data-roll="d20+@stats.{{key}}.effective" data-label="{{stat.rollname}}">
-                        <span class="icon">
-                            <i class="fas fa-dice-d20"></i>
-                        </span>
-                        <span>
-                            {{key}}
-                        </span>
-                    </button>
-                    </p>
-                </div>
-                <div class="column is-3">
-                    <p class="control">
-                        <span class="help">Actual
-                    </p>
-                    <input class="input" type="text" name="data.stats.{{key}}.actual" value="{{stat.actual}}"
-                        data-dtype="Number">
-                    </p>
-                </div>
-                <div class="column is-3">
-                    <span class="help">Effective</span>
-                    <p class="control">
-                        <input class="input" type="text" name="data.stats.{{key}}.effective" value="{{stat.effective}}"
-                            data-dtype="Number">
-                    </p>
                 </div>
 
             </div>
 
-        </div>
-        {{/each}}
+            {{#each data.stats as |stat key|}}
+                <div class="column is-half py-1">
 
-    </div>
+                    <div class="columns is-variable is-1">
+
+                        <div class="column">
+                            <p class="control is-6">
+                                <span class="help">&nbsp;
+                            </p>
+                            <button class="button is-info is-outlined is-fullwidth rollable is-capitalized"
+                                data-roll="d20+@stats.{{key}}.effective" data-label="{{stat.rollname}}">
+                                <span class="icon">
+                                    <i class="fas fa-dice-d20"></i>
+                                </span>
+                                <span>
+                                    {{key}}
+                                </span>
+                            </button>
+                            </p>
+                        </div>
+                        <div class="column is-3">
+                            <p class="control">
+                                <span class="help">Actual
+                            </p>
+                            <input class="input" type="text" name="data.stats.{{key}}.actual" value="{{stat.actual}}"
+                                data-dtype="Number">
+                            </p>
+                        </div>
+                        <div class="column is-3">
+                            <span class="help">Effective</span>
+                            <p class="control">
+                                <input class="input" type="text" name="data.stats.{{key}}.effective"
+                                    value="{{stat.effective}}" data-dtype="Number">
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+            {{/each}}
+
+        </div>
+
+    {{/if}}
 
     {{!-- Sheet Tab Navigation --}}
     <div class="sheet-tabs tabs is-medium is-centered" data-group="primary">
-        <ul>            
-            <li><a class="item" data-tab="notes">Notes</a></li>
-            <li><a class="item" data-tab="items">Items</a></li>
-            <li><a class="item" data-tab="spells">Spells</a></li>
-            {{#if (eq data.category "Wizard")}}
-            <li><a class="item" data-tab="progression">Progression</a></li>           
+        <ul>
+            <li><a class="item" data-tab="items">{{#if (eq data.category "Base")}}Vault{{else}}Items{{/if}}</a></li>
+
+            {{#if (eq data.category "Base")}}
+                <li><a class="item" data-tab="homebase">Homebase</a></li>
             {{/if}}
+
+            {{#if (ne data.category "Base")}}
+                <li><a class="item" data-tab="spells">Spells</a></li>
+            {{/if}}
+
+            {{#if (eq data.category "Wizard")}}
+                <li><a class="item" data-tab="progression">Experience</a></li>
+            {{/if}}
+
+            <li><a class="item" data-tab="notes">Notes</a></li>
         </ul>
     </div>
 
     {{!-- Sheet Body --}}
     <section class="sheet-body">
 
-        
+
         {{!-- Notes Tab --}}
-        <div class="tab notes" data-group="primary" data-tab="notes">
-        
-                {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
-           
+        <div class="tab notes container" data-group="primary" data-tab="notes">
+
+            {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
+
         </div>
 
-        {{!-- Progression Tab --}}
-        <div class="tab progression" data-group="primary" data-tab="progression">      
+        {{!-- Experience Tab --}}
+        <div class="tab progression container is-fluid" data-group="primary" data-tab="progression">
 
-            <progress class="progress is-large is-info" value="{{data.exptotal}}" max="100"></progress>
-            
-            <div class="columns">               
+            <div class="columns">
 
                 <div class="column">
                     <label class="label">Level</label>
@@ -197,11 +210,67 @@
                         data-dtype="Number" />
                 </div>
 
-            </div>           
+            </div>
+
+            <progress class="progress is-large is-info" value="{{data.exptotal}}" max="100"></progress>
+
+
+            <h2 class="mb-2">Leveling Log</h2>
+            {{editor content=data.levellog target="data.levellog" button=true owner=owner editable=editable}}
+
+        </div>
+
+        {{!-- Homebase Tab --}}
+        <div class="tab homebase container is-fluid" data-group="primary" data-tab="homebase">
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Treasury (gc)</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <input class="input" name="data.basetreasury" type="text" value="{{data.basetreasury}}"
+                                data-dtype="Number" />
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Base Location</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <input class="input" name="data.baselocation" type="text" value="{{data.baselocation}}"
+                                data-dtype="String" />
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Base Resources</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            <input class="input" name="data.baseresources" type="text" value="{{data.baseresources}}"
+                                data-dtype="String" />
+                        </p>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         {{!-- Items Tab --}}
-        <div class="tab items" data-group="primary" data-tab="items">
+        <div class="tab items container is-fluid" data-group="primary" data-tab="items">
 
             <button class="button is-outlined is-fullwidth item-create mb-4" data-type="item">
                 <span class="icon is-small">
@@ -212,119 +281,119 @@
 
 
             {{#each actor.items as |item id|}}
-            <div class="box item-card" data-item-id="{{item._id}}">
-                <div class="media">
-                    <div class="media-left">
-                        <figure class="image is-square">
-                            <img class="is-cover" src="{{item.img}}" title="{{item.name}}">
-                        </figure>
+                <div class="box item-card" data-item-id="{{item._id}}">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-square">
+                                <img class="is-cover" src="{{item.img}}" title="{{item.name}}">
+                            </figure>
 
 
-                        <nav class="media-center">
-                            <div class="field has-addons">
-                                <p class="control">
-                                    <button class="button is-small item-equip">
-                                        <span class="icon is-small">
-                                            <i class="far fa-hand-paper"></i>
-                                        </span>
-                                    </button>
-                                </p>
-                                <p class="control">
-                                    <button class="button is-small item-edit">
-                                        <span class="icon is-small">
-                                            <i class="fas fa-edit"></i>
-                                        </span>
-                                    </button>
-                                </p>
-                                <p class="control">
-                                    <button class="button is-small item-delete">
-                                        <span class="icon is-small">
-                                            <i class="fas fa-times"></i>
-                                        </span>
-                                    </button>
-                                </p>
-                            </div>
-                        </nav>
-
-
-                    </div>
-                    <div class="media-content">
-                        <div class="is-capitalized is-size-5 has-text-weight-bold">{{item.name}}</div>
-
-                        <div class="field is-grouped is-grouped-multiline">
-
-                            <div class="control">
-                                <div class="tags has-addons">
-                                    <span class="tag is-dark">{{item.data.category}}</span>
-                                    {{#if (ne item.data.subcategory "None")}}
-                                    <span class="tag is-light">{{item.data.subcategory}}</span>
-                                    {{/if}}
+                            <nav class="media-center">
+                                <div class="field has-addons">
+                                    <p class="control">
+                                        <button class="button is-small item-equip">
+                                            <span class="icon is-small">
+                                                <i class="far fa-hand-paper"></i>
+                                            </span>
+                                        </button>
+                                    </p>
+                                    <p class="control">
+                                        <button class="button is-small item-edit">
+                                            <span class="icon is-small">
+                                                <i class="fas fa-edit"></i>
+                                            </span>
+                                        </button>
+                                    </p>
+                                    <p class="control">
+                                        <button class="button is-small item-delete">
+                                            <span class="icon is-small">
+                                                <i class="fas fa-times"></i>
+                                            </span>
+                                        </button>
+                                    </p>
                                 </div>
-                            </div>
-
-                            {{#if (ne item.data.damage null)}}
-                            <div class="control">
-                                <div class="tags has-addons">
-                                    <span class="tag is-info">Damage</span>
-                                    <span class="tag is-info is-light">{{item.data.damage}}</span>
-                                </div>
-                            </div>
-                            {{/if}}
-
-                            {{#if (ne item.data.range null)}}
-                            <div class="control">
-                                <div class="tags has-addons">
-                                    <span class="tag is-info">Range</span>
-                                    <span class="tag is-info is-light">{{item.data.range}}</span>
-                                </div>
-                            </div>
-                            {{/if}}
-
-                            {{#if (ne item.data.armour null)}}
-                            <div class="control">
-                                <div class="tags has-addons">
-                                    <span class="tag is-info">Armour</span>
-                                    <span class="tag is-info is-light">{{item.data.armour}}</span>
-                                </div>
-                            </div>
-                            {{/if}}
-
-                            {{#if (and (ne item.data.effect "") (ne item.data.effect null))}}
-                            <div class="control">
-                                <div class="tags has-addons">
-                                    <span class="tag is-info">Effect</span>
-                                    <span class="tag is-info is-light">{{item.data.effect}}</span>
-                                </div>
-                            </div>
-                            {{/if}}
-
-                            {{#if (ne item.data.price null)}}
-                            <div class="control">
-                                <div class="tags has-addons">
-                                    <span class="tag is-warning">Price</span>
-                                    <span class="tag is-warning is-light">{{item.data.price}}</span>
-                                </div>
-                            </div>
-                            {{/if}}
-
-
-                            {{#if (ne item.data.sale null)}}
-                            <div class="control">
-                                <div class="tags has-addons">
-                                    <span class="tag is-warning">Sale</span>
-                                    <span class="tag is-warning is-light">{{item.data.sale}}</span>
-                                </div>
-                            </div>
-                            {{/if}}
+                            </nav>
 
 
                         </div>
-                        <div class="media-content pt-2">{{formatHTMLMessage item.data.description}}</div>
+                        <div class="media-content">
+                            <div class="is-capitalized is-size-5 has-text-weight-bold">{{item.name}}</div>
+
+                            <div class="field is-grouped is-grouped-multiline">
+
+                                <div class="control">
+                                    <div class="tags has-addons">
+                                        <span class="tag is-dark">{{item.data.category}}</span>
+                                        {{#if (ne item.data.subcategory "None")}}
+                                            <span class="tag is-light">{{item.data.subcategory}}</span>
+                                        {{/if}}
+                                    </div>
+                                </div>
+
+                                {{#if (ne item.data.damage null)}}
+                                    <div class="control">
+                                        <div class="tags has-addons">
+                                            <span class="tag is-info">Damage</span>
+                                            <span class="tag is-info is-light">{{item.data.damage}}</span>
+                                        </div>
+                                    </div>
+                                {{/if}}
+
+                                {{#if (ne item.data.range null)}}
+                                    <div class="control">
+                                        <div class="tags has-addons">
+                                            <span class="tag is-info">Range</span>
+                                            <span class="tag is-info is-light">{{item.data.range}}</span>
+                                        </div>
+                                    </div>
+                                {{/if}}
+
+                                {{#if (ne item.data.armour null)}}
+                                    <div class="control">
+                                        <div class="tags has-addons">
+                                            <span class="tag is-info">Armour</span>
+                                            <span class="tag is-info is-light">{{item.data.armour}}</span>
+                                        </div>
+                                    </div>
+                                {{/if}}
+
+                                {{#if (and (ne item.data.effect "") (ne item.data.effect null))}}
+                                    <div class="control">
+                                        <div class="tags has-addons">
+                                            <span class="tag is-info">Effect</span>
+                                            <span class="tag is-info is-light">{{item.data.effect}}</span>
+                                        </div>
+                                    </div>
+                                {{/if}}
+
+                                {{#if (ne item.data.price null)}}
+                                    <div class="control">
+                                        <div class="tags has-addons">
+                                            <span class="tag is-warning">Price</span>
+                                            <span class="tag is-warning is-light">{{item.data.price}}</span>
+                                        </div>
+                                    </div>
+                                {{/if}}
+
+
+                                {{#if (ne item.data.sale null)}}
+                                    <div class="control">
+                                        <div class="tags has-addons">
+                                            <span class="tag is-warning">Sale</span>
+                                            <span class="tag is-warning is-light">{{item.data.sale}}</span>
+                                        </div>
+                                    </div>
+                                {{/if}}
+
+
+                            </div>
+                            <div class="media-content pt-2">{{formatHTMLMessage item.data.description}}</div>
+                        </div>
+
                     </div>
 
                 </div>
-
-            </div>
             {{/each}}
         </div>
     </section>

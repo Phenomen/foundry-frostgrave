@@ -18,12 +18,12 @@
           <div class="select is-fullwidth">
             <select name="data.category" data-dtype="String">
               {{#select data.category}}
-                <option value="Weapon">Weapon</option>
-                <option value="Armour">Armour</option>
-                <option value="Potion">Potion</option>
-                <option value="Scroll">Scroll</option>
-                <option value="Grimoire">Grimoire</option>
-                <option value="Other">Other</option>
+              <option value="Weapon">Weapon</option>
+              <option value="Armour">Armour</option>
+              <option value="Potion">Potion</option>
+              <option value="Scroll">Scroll</option>
+              <option value="Grimoire">Grimoire</option>
+              <option value="Other">Other</option>
               {{/select}}
             </select>
           </div>
@@ -33,31 +33,31 @@
           <div class="select is-fullwidth">
             <select name="data.subcategory" data-dtype="String">
               {{#select data.subcategory}}
-                <option value="None">None</option>
+              <option value="None">None</option>
 
-                {{#if (eq data.category "Weapon")}}
-                  <option value="Dagger">Dagger</option>
-                  <option value="Hand Weapon">Hand Weapon</option>
-                  <option value="Two-Handed Weapon">Two-Handed Weapon</option>
-                  <option value="Staff">Staff</option>
-                  <option value="Bow">Bow</option>
-                  <option value="Crossbow">Crossbow</option>
-                  <option value="Quiver">Quiver</option>
-                  <option value="Unarmed">Unarmed</option>
-                  <option value="Natural Weapon">Natural Weapon</option>
-                {{/if}}
+              {{#if (eq data.category "Weapon")}}
+              <option value="Dagger">Dagger</option>
+              <option value="Hand Weapon">Hand Weapon</option>
+              <option value="Two-Handed Weapon">Two-Handed Weapon</option>
+              <option value="Staff">Staff</option>
+              <option value="Bow">Bow</option>
+              <option value="Crossbow">Crossbow</option>
+              <option value="Quiver">Quiver</option>
+              <option value="Unarmed">Unarmed</option>
+              <option value="Natural Weapon">Natural Weapon</option>
+              {{/if}}
 
-                {{#if (eq data.category "Armour")}}
-                  <option value="Light">Light</option>
-                  <option value="Heavy">Heavy</option>
-                  <option value="Shield">Shield</option>
-                  <option value="Natural">Natural</option>
-                {{/if}}
+              {{#if (eq data.category "Armour")}}
+              <option value="Light">Light</option>
+              <option value="Heavy">Heavy</option>
+              <option value="Shield">Shield</option>
+              <option value="Natural">Natural</option>
+              {{/if}}
 
-                {{#if (eq data.category "Potion")}}
-                  <option value="Lesser Potion">Lesser Potion</option>
-                  <option value="Greater Potion">Greater Potion</option>
-                {{/if}}
+              {{#if (eq data.category "Potion")}}
+              <option value="Lesser Potion">Lesser Potion</option>
+              <option value="Greater Potion">Greater Potion</option>
+              {{/if}}
 
               {{/select}}
             </select>
@@ -83,105 +83,104 @@
     <div class="tab attributes container" data-group="primary" data-tab="attributes">
 
       {{#if (eq data.category "Weapon")}}
-        <div class="field is-horizontal">
-          <div class="field-label is-normal">
-            <label class="label">Damage Modifier</label>
-          </div>
-          <div class="field-body">
-            <div class="field">
-              <p class="control">
-                <input class="input" name="data.damage" type="text" value="{{data.damage}}" data-dtype="Number" />
-              </p>
-            </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Damage Modifier</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input class="input" name="data.damage" type="text" value="{{data.damage}}" data-dtype="Number" />
+            </p>
           </div>
         </div>
+      </div>
 
-        <div class="field is-horizontal">
-          <div class="field-label is-normal">
-            <label class="label">Maximum Range</label>
-          </div>
-          <div class="field-body">
-            <div class="field">
-              <p class="control">
-                <input class="input" name="data.range" type="text" value="{{data.range}}" data-dtype="Number" />
-              </p>
-            </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Maximum Range</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input class="input" name="data.range" type="text" value="{{data.range}}" data-dtype="Number" />
+            </p>
           </div>
         </div>
+      </div>
       {{/if}}
 
       {{#if (eq data.category "Armour")}}
-        <div class="field is-horizontal">
-          <div class="field-label is-normal">
-            <label class="label">Armour</label>
-          </div>
-          <div class="field-body">
-            <div class="field">
-              <p class="control">
-                <input class="input" name="data.armour" type="text" value="{{data.armour}}" data-dtype="Number" />
-              </p>
-            </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Armour</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input class="input" name="data.armour" type="text" value="{{data.armour}}" data-dtype="Number" />
+            </p>
           </div>
         </div>
+      </div>
       {{/if}}
 
       {{#if (or (eq data.category "Weapon") (eq data.category "Armour"))}}
-        <div class="field is-horizontal">
-          <div class="field-label is-normal">
-            <label class="label">Magic Effect</label>
-          </div>
-          <div class="field-body">
-            <div class="field">
-              <p class="control">
-                <input class="input" name="data.effect" type="text" value="{{data.effect}}" data-dtype="String" />
-              </p>
-            </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Magic Effect</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input class="input" name="data.effect" type="text" value="{{data.effect}}" data-dtype="String" />
+            </p>
           </div>
         </div>
+      </div>
       {{/if}}
 
       {{#if (or (eq data.category "Weapon") (eq data.category "Armour") (eq data.category "Potion"))}}
-        <div class="field is-horizontal">
-          <div class="field-label is-normal">
-            <label class="label">Purchase Price</label>
-          </div>
-          <div class="field-body">
-            <div class="field">
-              <p class="control">
-                <input class="input" name="data.price" type="text" value="{{data.price}}" data-dtype="Number" />
-              </p>
-            </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Purchase Price</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input class="input" name="data.price" type="text" value="{{data.price}}" data-dtype="Number" />
+            </p>
           </div>
         </div>
+      </div>
 
-        <div class="field is-horizontal">
-          <div class="field-label is-normal">
-            <label class="label">Sale Price</label>
-          </div>
-          <div class="field-body">
-            <div class="field">
-              <p class="control">
-                <input class="input" name="data.sale" type="text" value="{{data.sale}}" data-dtype="Number" />
-              </p>
-            </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Sale Price</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input class="input" name="data.sale" type="text" value="{{data.sale}}" data-dtype="Number" />
+            </p>
           </div>
         </div>
+      </div>
 
-        {{#if (eq data.subcategory "Greater Potion")}}
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">Ingredient Price</label>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <p class="control">
-                  <input class="input" name="data.ingredient" type="text" value="{{data.ingredient}}"
-                    data-dtype="Number" />
-                </p>
-              </div>
-            </div>
+      {{#if (eq data.subcategory "Greater Potion")}}
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Ingredient Price</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input class="input" name="data.ingredient" type="text" value="{{data.ingredient}}" data-dtype="Number" />
+            </p>
           </div>
-        {{/if}}
+        </div>
+      </div>
+      {{/if}}
 
       {{/if}}
 

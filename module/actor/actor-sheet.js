@@ -104,12 +104,19 @@ export class frostgraveActorSheet extends ActorSheet {
 
         if (dataset.roll) {
             let roll = new Roll(dataset.roll, this.actor.data.data);
-            let label = dataset.label ? `${dataset.label} Roll` : "";
-            roll.roll().toMessage({
+            let damage = parseInt(roll.roll().total) + parseInt(dataset.bonus);
+            let rollflavor = `${dataset.label} Roll: ` + roll.total;
+
+            if (dataset.label == "Combat" || dataset.label == "Shooting") {
+                let damageflavor = `<br>Damage: ` + damage;
+                rollflavor = rollflavor + damageflavor;      
+            }          
+
+            roll.toMessage({
                 speaker: ChatMessage.getSpeaker({
                     actor: this.actor
                 }),
-                flavor: label,
+                flavor: rollflavor,
             });
         }
     }
@@ -127,18 +134,7 @@ export class frostgraveActorSheet extends ActorSheet {
         // Initialize containers.
         const gear = [];
         const features = [];
-        const spells = {
-            0: [],
-            1: [],
-            2: [],
-            3: [],
-            4: [],
-            5: [],
-            6: [],
-            7: [],
-            8: [],
-            9: [],
-        };
+        const spells = [];
 
         // Iterate through items, allocating to containers
         // let totalWeight = 0;
@@ -155,9 +151,7 @@ export class frostgraveActorSheet extends ActorSheet {
             }
             // Append to spells.
             else if (i.type === "spell") {
-                if (i.data.spellLevel != undefined) {
-                    spells[i.data.spellLevel].push(i);
-                }
+                spells.push(i);
             }
         }
 

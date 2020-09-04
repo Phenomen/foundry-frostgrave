@@ -137,12 +137,19 @@ function (_ActorSheet) {
 
       if (dataset.roll) {
         var roll = new Roll(dataset.roll, this.actor.data.data);
-        var label = dataset.label ? "".concat(dataset.label, " Roll") : "";
-        roll.roll().toMessage({
+        var damage = parseInt(roll.roll().total) + parseInt(dataset.bonus);
+        var rollflavor = "".concat(dataset.label, " Roll: ") + roll.total;
+
+        if (dataset.label == "Combat" || dataset.label == "Shooting") {
+          var damageflavor = "<br>Damage: " + damage;
+          rollflavor = rollflavor + damageflavor;
+        }
+
+        roll.toMessage({
           speaker: ChatMessage.getSpeaker({
             actor: this.actor
           }),
-          flavor: label
+          flavor: rollflavor
         });
       }
     }
@@ -161,18 +168,7 @@ function (_ActorSheet) {
 
       var gear = [];
       var features = [];
-      var spells = {
-        0: [],
-        1: [],
-        2: [],
-        3: [],
-        4: [],
-        5: [],
-        6: [],
-        7: [],
-        8: [],
-        9: []
-      }; // Iterate through items, allocating to containers
+      var spells = []; // Iterate through items, allocating to containers
       // let totalWeight = 0;
 
       var _iteratorNormalCompletion = true;
@@ -192,9 +188,7 @@ function (_ActorSheet) {
               features.push(i);
             } // Append to spells.
             else if (i.type === "spell") {
-                if (i.data.spellLevel != undefined) {
-                  spells[i.data.spellLevel].push(i);
-                }
+                spells.push(i);
               }
         } // Assign and return
 
@@ -230,7 +224,7 @@ function (_ActorSheet) {
         tabs: [{
           navSelector: ".sheet-tabs",
           contentSelector: ".sheet-body",
-          initial: "notes"
+          initial: "items"
         }]
       });
     }

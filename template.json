@@ -5,45 +5,55 @@
         ],
         "templates": {
             "base": {
+                "baselocation": "",
+                "baseresources": "",
+                "basetreasury": 0,
                 "biography": "",
+                "category": "Wizard",
+                "class": "Chronomancer",
+                "expbanked": 0,
+                "expscenario": 0,
+                "exptotal": 0,
+                "level": 0,
+                "levellog": "<ul><li>1:</li><li>2:</li><li>3:</li><li>4:</li><li>5:</li><li>6:</li><li>7:</li><li>8:</li><li>9:</li><li>10:</li></ul>",
                 "mod": 0,
                 "health": {
                     "value": 14,
                     "min": 0,
                     "max": 14,
                     "actual": 14,
+                    "bonus": 0,
                     "rollname": "Health"
                 },
                 "stats": {
                     "move": {
                         "actual": 6,
                         "effective": 6,
+                        "bonus": 0,
                         "rollname": "Movement"
                     },
                     "armour": {
                         "actual": 10,
                         "effective": 10,
                         "bonus": 0,
-                        "gear": "",
                         "rollname": "Armour"
                     },
                     "will": {
                         "actual": 4,
                         "effective": 4,
+                        "bonus": 0,
                         "rollname": "Will"
                     },
                     "fight": {
                         "actual": 2,
                         "effective": 2,
                         "bonus": 0,
-                        "gear": "",
                         "rollname": "Combat"
                     },
                     "shoot": {
                         "actual": 0,
                         "effective": 0,
                         "bonus": 0,
-                        "gear": "",
                         "rollname": "Shooting"
                     }
                 }
@@ -52,17 +62,7 @@
         "character": {
             "templates": [
                 "base"
-            ],
-            "level": 0,
-            "expbanked": 0,
-            "expscenario": 0,
-            "exptotal": 0,
-            "category": "Wizard",
-            "class": "Chronomancer",
-            "baselocation": "",
-            "baseresources": "",
-            "basetreasury": 0,
-            "levellog": "<ul><li>Level 1:</li><li>Level 2:</li><li>Level 3:</li><li>Level 4:</li><li>Level 5:</li><li>Level 6:</li><li>Level 7:</li><li>Level 8:</li><li>Level 9:</li><li>Level 10:</li></ul>"
+            ]
         }
     },
     "Item": {
@@ -99,9 +99,10 @@
             "templates": [
                 "base"
             ],
-            "bcn": 1,
+            "bcn": 10,
             "improved": 0,
-            "school": ""
+            "category": "Line of Sight",
+            "school": "Chronomancer"
         }
     }
 }

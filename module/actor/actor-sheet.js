@@ -109,8 +109,8 @@ export class frostgraveActorSheet extends ActorSheet {
 
             if (dataset.label == "Combat" || dataset.label == "Shooting") {
                 let damageflavor = `<br>Damage: ` + damage;
-                rollflavor = rollflavor + damageflavor;      
-            }          
+                rollflavor = rollflavor + damageflavor;
+            }
 
             roll.toMessage({
                 speaker: ChatMessage.getSpeaker({

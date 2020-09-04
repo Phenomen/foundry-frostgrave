@@ -1,0 +1,64 @@
+<div class="columns">
+
+    <div class="column is-3">
+
+        <figure class="image is-square">
+            <img class="is-cover" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+        </figure>
+    </div>
+
+    <div class="column">
+
+        <input class="input is-info is-medium" name="name" type="text" value="{{actor.name}}" placeholder="Name" />
+
+        <div class="columns pt-2">
+
+            <div class="column is-6">
+                <div class="select is-fullwidth">
+                    <select name="data.category" data-dtype="String">
+                        {{#select data.category}}
+                        <option value="Wizard">Wizard</option>
+                        <option value="Apprentice">Apprentice</option>
+                        <option value="Soldier">Soldier</option>
+                        <option value="Creature">Creature</option>
+                        <option value="Base">Base</option>
+                        {{/select}}
+                    </select>
+                </div>
+            </div>
+
+            <div class="column is-6">
+                <div class="select is-fullwidth">
+                    <select name="data.class" data-dtype="String">
+                        {{#select data.class}}
+                        {{#if (or (eq data.category "Wizard") (eq data.category "Apprentice"))}}
+                        <option value="Chronomancer">Chronomancer</option>
+                        <option value="Elementalist">Elementalist</option>
+                        <option value="Enchanter">Enchanter</option>
+                        <option value="Illusionist">Illusionist</option>
+                        <option value="Necromancer">Necromancer</option>
+                        <option value="Sigilist">Sigilist</option>
+                        <option value="Soothsayer">Soothsayer</option>
+                        <option value="Summoner">Summoner</option>
+                        <option value="Thaumaturge">Thaumaturge</option>
+                        <option value="Witch">Witch</option>
+                        {{/if}}
+                        {{#if (eq data.category "Soldier")}}
+                        <option value="Standard">Standard</option>
+                        <option value="Specialist">Specialist</option>
+                        {{/if}}
+                        {{#if (eq data.category "Creature")}}
+                        <option value="Uncontrolled">Uncontrolled</option>
+                        <option value="Controlled">Controlled</option>
+                        {{/if}}
+                        {{#if (eq data.category "Base")}}
+                        <option value="Homebase">Homebase</option>
+                        {{/if}}
+                        {{/select}}
+                    </select>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

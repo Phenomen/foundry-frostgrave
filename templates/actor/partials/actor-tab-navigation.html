@@ -1,0 +1,19 @@
+<div class="sheet-tabs tabs is-medium is-centered" data-group="primary">
+    <ul>
+        <li><a class="item" data-tab="items">{{#if (eq data.category "Base")}}Vault{{else}}Items{{/if}}</a></li>
+
+        {{#if (eq data.category "Base")}}
+        <li><a class="item" data-tab="homebase">Homebase</a></li>
+        {{/if}}
+
+        {{#if (ne data.category "Base")}}
+        <li><a class="item" data-tab="spells">Spells</a></li>
+        {{/if}}
+
+        {{#if (eq data.category "Wizard")}}
+        <li><a class="item" data-tab="progression">Experience</a></li>
+        {{/if}}
+
+        <li><a class="item" data-tab="notes">Notes</a></li>
+    </ul>
+</div>

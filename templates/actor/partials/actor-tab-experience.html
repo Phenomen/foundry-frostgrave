@@ -1,0 +1,27 @@
+<div class="tab progression container is-fluid" data-group="primary" data-tab="progression">
+
+    <div class="columns">
+
+        <div class="column">
+            <label class="label">Level</label>
+            <input class="input" name="data.level" type="text" value="{{data.level}}" data-dtype="Number" />
+        </div>
+
+        <div class="column">
+            <label class="label">Scenario Experience</label>
+            <input class="input" name="data.expscenario" type="text" value="{{data.expscenario}}" data-dtype="Number" />
+        </div>
+
+        <div class="column">
+            <label class="label">Banked Experience</label>
+            <input class="input" name="data.expbanked" type="text" value="{{data.expbanked}}" data-dtype="Number" />
+        </div>
+
+    </div>
+
+    <progress class="progress is-large is-info" value="{{data.exptotal}}" max="100"></progress>
+
+    <h2 class="mb-2">Leveling Log</h2>
+    {{editor content=data.levellog target="data.levellog" button=true owner=owner editable=editable}}
+
+</div>

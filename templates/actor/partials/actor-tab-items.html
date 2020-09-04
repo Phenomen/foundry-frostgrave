@@ -1,0 +1,114 @@
+<div class="tab gear container is-fluid" data-group="primary" data-tab="items">
+
+    <button class="button is-outlined is-fullwidth item-create mb-4" data-type="item">
+        <span class="icon is-small">
+            <i class="fas fa-plus"></i>
+        </span>
+        <span>Add Item</span>
+    </button>
+
+    {{#each actor.gear as |item id|}}
+    <div class="box item-card" data-item-id="{{item._id}}">
+        <div class="media">
+            <div class="media-left">
+                <figure class="image is-square">
+                    <img class="is-cover" src="{{item.img}}" title="{{item.name}}">
+                </figure>
+
+                <nav class="media-center">
+                    <div class="field has-addons">
+                        <p class="control">
+                            <button class="button is-small item-edit">
+                                <span class="icon is-small">
+                                    <i class="fas fa-edit"></i>
+                                </span>
+                            </button>
+                        </p>
+                        <p class="control">
+                            <button class="button is-small item-delete">
+                                <span class="icon is-small">
+                                    <i class="fas fa-times"></i>
+                                </span>
+                            </button>
+                        </p>
+                    </div>
+                </nav>
+
+            </div>
+            <div class="media-content">
+                <div class="is-capitalized is-size-5 has-text-weight-bold">{{item.name}}</div>
+
+                <div class="field is-grouped is-grouped-multiline">
+
+                    <div class="control">
+                        <div class="tags has-addons">
+                            <span class="tag is-dark">{{item.data.category}}</span>
+                            {{#if (ne item.data.subcategory "None")}}
+                            <span class="tag is-light">{{item.data.subcategory}}</span>
+                            {{/if}}
+                        </div>
+                    </div>
+
+                    {{#if (ne item.data.damage null)}}
+                    <div class="control">
+                        <div class="tags has-addons">
+                            <span class="tag is-info">Damage</span>
+                            <span class="tag is-info is-light">{{item.data.damage}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    {{#if (ne item.data.range null)}}
+                    <div class="control">
+                        <div class="tags has-addons">
+                            <span class="tag is-info">Range</span>
+                            <span class="tag is-info is-light">{{item.data.range}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    {{#if (ne item.data.armour null)}}
+                    <div class="control">
+                        <div class="tags has-addons">
+                            <span class="tag is-info">Armour</span>
+                            <span class="tag is-info is-light">{{item.data.armour}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    {{#if (and (ne item.data.effect "") (ne item.data.effect null))}}
+                    <div class="control">
+                        <div class="tags has-addons">
+                            <span class="tag is-info">Effect</span>
+                            <span class="tag is-info is-light">{{item.data.effect}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    {{#if (ne item.data.price null)}}
+                    <div class="control">
+                        <div class="tags has-addons">
+                            <span class="tag is-warning">Price</span>
+                            <span class="tag is-warning is-light">{{item.data.price}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    {{#if (ne item.data.sale null)}}
+                    <div class="control">
+                        <div class="tags has-addons">
+                            <span class="tag is-warning">Sale</span>
+                            <span class="tag is-warning is-light">{{item.data.sale}}</span>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                </div>
+                <div class="media-content pt-2">{{formatHTMLMessage item.data.description}}</div>
+            </div>
+
+        </div>
+
+    </div>
+    {{/each}}
+</div>

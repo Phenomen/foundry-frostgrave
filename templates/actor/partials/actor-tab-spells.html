@@ -1,0 +1,73 @@
+<div class="tab spells container is-fluid" data-group="primary" data-tab="spells">
+
+    <button class="button is-outlined is-fullwidth item-create mb-4" data-type="spell">
+        <span class="icon is-small">
+            <i class="fas fa-plus"></i>
+        </span>
+        <span>Add Spell</span>
+    </button>
+
+    {{#each actor.spells as |item id|}}
+    <div class="box item-card" data-item-id="{{item._id}}">
+        <div class="media">
+            <div class="media-left">
+                <figure class="image is-square">
+                    <img class="is-cover" src="{{item.img}}" title="{{item.name}}">
+                </figure>
+
+
+                <nav class="media-center">
+                    <div class="field has-addons">
+                        <p class="control">
+                            <button class="button is-small item-edit">
+                                <span class="icon is-small">
+                                    <i class="fas fa-edit"></i>
+                                </span>
+                            </button>
+                        </p>
+                        <p class="control">
+                            <button class="button is-small item-delete">
+                                <span class="icon is-small">
+                                    <i class="fas fa-times"></i>
+                                </span>
+                            </button>
+                        </p>
+                    </div>
+                </nav>
+
+            </div>
+            <div class="media-content">
+                <div class="is-capitalized is-size-5 has-text-weight-bold">{{item.name}}</div>
+
+                <div class="field is-grouped is-grouped-multiline">
+
+                    <div class="control">
+                        <div class="tags has-addons">
+                            <span class="tag is-dark">{{item.data.school}}</span>
+                            <span class="tag is-light">{{item.data.category}}</span>
+                        </div>
+                    </div>
+
+                    <div class="control">
+                        <div class="tags has-addons">
+                            <span class="tag is-info">BCN</span>
+                            <span class="tag is-info is-light">{{item.data.bcn}}</span>
+                        </div>
+                    </div>
+
+                    <div class="control">
+                        <div class="tags has-addons">
+                            <span class="tag is-info">Improved</span>
+                            <span class="tag is-info is-light">{{item.data.improved}}</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="media-content pt-2">{{formatHTMLMessage item.data.description}}</div>
+            </div>
+
+        </div>
+
+    </div>
+    {{/each}}
+</div>

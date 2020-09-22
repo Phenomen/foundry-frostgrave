@@ -14,14 +14,47 @@
         "css/frostgrave.css"
     ],
     "scripts": [],
-    "packs": [],
-    "languages": [
+    "packs": [{
+            "name": "spellcasters",
+            "label": "Spellcasters",
+            "system": "frostgrave",
+            "path": "./packs/spellcasters.db",
+            "entity": "Actor"
+        },
         {
-            "lang": "en",
-            "name": "English",
-            "path": "lang/en.json"
+            "name": "soldiers",
+            "label": "Soldiers",
+            "system": "frostgrave",
+            "path": "./packs/soldiers.db",
+            "entity": "Actor"
+        },
+        {
+            "name": "armour",
+            "label": "Armour",
+            "system": "frostgrave",
+            "path": "./packs/armour.db",
+            "entity": "Item"
+        },
+        {
+            "name": "weapons",
+            "label": "Weapons",
+            "system": "frostgrave",
+            "path": "./packs/weapons.db",
+            "entity": "Item"
+        },
+        {
+            "name": "potions",
+            "label": "Potions",
+            "system": "frostgrave",
+            "path": "./packs/potions.db",
+            "entity": "Item"
         }
     ],
+    "languages": [{
+        "lang": "en",
+        "name": "English",
+        "path": "lang/en.json"
+    }],
     "gridDistance": 5,
     "gridUnits": "ft",
     "primaryTokenAttribute": "health",

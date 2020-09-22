@@ -2,7 +2,6 @@
     <div class="columns">
 
         <div class="column is-2">
-
             <figure class="image is-square">
                 <img class="is-cover" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
             </figure>
@@ -11,68 +10,86 @@
         <div class="column">
 
             <input class="input is-info is-medium" name="name" type="text" value="{{item.name}}" placeholder="Name" />
-
-            <div class="columns mt-1">
-
-                <div class="column">
-                    <span class="help">School</span>
-                    <div class="select is-fullwidth">
-                        <select name="data.school" data-dtype="String">
-                            {{#select data.school}}
-                            <option value="Chronomancer">Chronomancer</option>
-                            <option value="Elementalist">Elementalist</option>
-                            <option value="Enchanter">Enchanter</option>
-                            <option value="Illusionist">Illusionist</option>
-                            <option value="Necromancer">Necromancer</option>
-                            <option value="Sigilist">Sigilist</option>
-                            <option value="Soothsayer">Soothsayer</option>
-                            <option value="Summoner">Summoner</option>
-                            <option value="Thaumaturge">Thaumaturge</option>
-                            <option value="Witch">Witch</option>
-                            {{/select}}
-                        </select>
-                    </div>
-                </div>
-
-                <div class="column">
-                    <span class="help">Category</span>
-                    <div class="select is-fullwidth">
-                        <select name="data.category" data-dtype="String">
-                            {{#select data.category}}
-                            <option value="Area Effect">Area Effect</option>
-                            <option value="Line of Sight">Line of Sight</option>
-                            <option value="Out of Game (A)">Out of Game (A)</option>
-                            <option value="Out of Game (B)">Out of Game (B)</option>
-                            <option value="Self Only">Self Only</option>
-                            <option value="Touch">Touch</option>
-                            {{/select}}
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="columns">
-
-                <div class="column">
-                    <p class="control">
-                        <span class="help">Base Casting Number</span>
-                        <input class="input" type="text" name="data.bcn" value="{{data.bcn}}" data-dtype="Number">
-                    </p>
-                </div>
-
-                <div class="column">
-                    <p class="control">
-                        <span class="help">Improved</span>
-                        <input class="input" type="text" name="data.improved" value="{{data.improved}}"
-                            data-dtype="Number">
-                    </p>
-                </div>
-
-            </div>
-
         </div>
 
     </div>
+
+
+    <div class="columns is-variable is-1">
+
+        <div class="column">
+            <span class="help">School</span>
+            <div class="select is-fullwidth">
+                <select name="data.school" data-dtype="String">
+                    {{#select data.school}}
+                    <option value="Chronomancer">Chronomancer</option>
+                    <option value="Elementalist">Elementalist</option>
+                    <option value="Enchanter">Enchanter</option>
+                    <option value="Illusionist">Illusionist</option>
+                    <option value="Necromancer">Necromancer</option>
+                    <option value="Sigilist">Sigilist</option>
+                    <option value="Soothsayer">Soothsayer</option>
+                    <option value="Summoner">Summoner</option>
+                    <option value="Thaumaturge">Thaumaturge</option>
+                    <option value="Witch">Witch</option>
+                    {{/select}}
+                </select>
+            </div>
+        </div>
+
+        <div class="column">
+            <span class="help">Category</span>
+            <div class="select is-fullwidth">
+                <select name="data.category" data-dtype="String">
+                    {{#select data.category}}
+                    <option value="Area Effect">Area Effect</option>
+                    <option value="Line of Sight">Line of Sight</option>
+                    <option value="Out of Game (A)">Out of Game (A)</option>
+                    <option value="Out of Game (B)">Out of Game (B)</option>
+                    <option value="Self Only">Self Only</option>
+                    <option value="Touch">Touch</option>
+                    {{/select}}
+                </select>
+            </div>
+        </div>
+
+        <div class="column">
+            <span class="help">Alignment</span>
+            <div class="select is-fullwidth">
+                <select name="data.alignment" data-dtype="String">
+                    {{#select data.alignment}}
+                    <option value="Native">Native</option>
+                    <option value="Aligned">Aligned</option>
+                    <option value="Neutral">Neutral</option>
+                    <option value="Opposed">Opposed</option>
+                    {{/select}}
+                </select>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="columns is-variable is-1">
+
+        <div class="column">
+            <p class="control">
+                <span class="help">Base Casting Number</span>
+                <input class="input" type="text" name="data.bcn" value="{{data.bcn}}" data-dtype="Number">
+            </p>
+        </div>
+
+        <div class="column">
+            <p class="control">
+                <span class="help">Improved</span>
+                <input class="input" type="text" name="data.improved" value="{{data.improved}}" data-dtype="Number">
+            </p>
+        </div>
+
+    </div>
+
+    </div>
+
 
 
     {{!-- Sheet Tab Navigation --}}

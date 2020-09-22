@@ -8,7 +8,7 @@ export class frostgraveActorSheet extends ActorSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["frostgrave", "sheet", "actor"],
             template: "systems/frostgrave/templates/actor/actor-sheet.html",
-            width: 600,
+            width: 620,
             height: 650,
             tabs: [{
                 navSelector: ".sheet-tabs",
@@ -119,6 +119,71 @@ export class frostgraveActorSheet extends ActorSheet {
                 flavor: rollflavor,
             });
         }
+
+        if (dataset.spell) {
+
+            let alignment = dataset.alignment;
+            let empowerment = this.actor.data.data.empowerment;
+
+
+
+            let alignmentmod;
+            let selfdamage;
+            let castresult;
+
+            if (alignment == "Native") {
+                alignmentmod = 0;
+            } else if (alignment == "Aligned") {
+                alignmentmod = 2;
+            } else if (alignment == "Neutral") {
+                alignmentmod = 4;
+            } else {
+                alignmentmod = 6;
+            };
+
+            let difficulty = dataset.bcn - dataset.improved + alignmentmod;
+            let roll = new Roll(`1d20+` + empowerment);
+            //let roll = new Roll(`(1d20+` + empowerment + `)ms>=` + difficulty);
+
+            roll.roll();
+
+            let rollresult = difficulty - roll.total;
+
+            if (rollresult >= 20) {
+                selfdamage = 5;
+            } else if (rollresult >= 10) {
+                selfdamage = 2;
+            } else if (rollresult >= 5) {
+                selfdamage = 1;
+            } else {
+                selfdamage = 0;
+            };
+
+
+
+            selfdamage = selfdamage + empowerment;
+
+            if (rollresult <= 0) {
+                castresult = '<strong style="color: green; font-size: 18px;">SUCCESS</strong>';
+            } else {
+                castresult = '<strong style="color: red; font-size: 18px;">FAILURE</strong>';
+            };
+
+
+            let rollflavor = `Casting <strong>${dataset.label}</strong> vs Difficulty <strong>` + difficulty + `</strong><br>` + castresult +
+                `<br>BCN: ${dataset.bcn} | Alignment: +` + alignmentmod + ` | Improved: -${dataset.improved}
+                <br>Empowerment: ` + empowerment + ` | Self Damage: ` + selfdamage;
+
+
+            roll.toMessage({
+                speaker: ChatMessage.getSpeaker({
+                    actor: this.actor
+                }),
+                flavor: rollflavor,
+            });
+        }
+
+
     }
 
     /**

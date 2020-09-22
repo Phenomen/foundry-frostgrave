@@ -5,7 +5,9 @@
 }
 
 .window-app .window-content {
-  background: none;
+  background-image: url("../img/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   background-color: #eef6fc;
 }
 

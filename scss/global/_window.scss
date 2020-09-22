@@ -2,13 +2,15 @@
     box-shadow: 0 0 20px $accent-color;
 
     .window-content {
-        background: none;
+        background-image: url("../img/bg.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
         background-color: hsl(206, 70%, 96%);
+
     }
 }
 
 .rollable {
-
     &:hover,
     &:focus {
         cursor: pointer;

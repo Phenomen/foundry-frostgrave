@@ -3,6 +3,7 @@ import { frostgraveActor } from "./actor/actor.js";
 import { frostgraveActorSheet } from "./actor/actor-sheet.js";
 import { frostgraveItem } from "./item/item.js";
 import { frostgraveItemSheet } from "./item/item-sheet.js";
+import { preloadHandlebarsTemplates } from "./templates.js";
 
 Hooks.once("init", async function () {
   game.frostgrave = {
@@ -48,4 +49,9 @@ Hooks.once("init", async function () {
   Handlebars.registerHelper("toLowerCase", function (str) {
     return str.toLowerCase();
   });
+
+
+// Preload Handlebars Templates
+preloadHandlebarsTemplates();
+
 });

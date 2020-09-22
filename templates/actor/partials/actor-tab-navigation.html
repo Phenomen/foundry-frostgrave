@@ -6,7 +6,7 @@
         <li><a class="item" data-tab="homebase">Homebase</a></li>
         {{/if}}
 
-        {{#if (ne data.category "Base")}}
+        {{#if (or (eq data.category "Wizard") (eq data.category "Apprentice"))}}
         <li><a class="item" data-tab="spells">Spells</a></li>
         {{/if}}
 

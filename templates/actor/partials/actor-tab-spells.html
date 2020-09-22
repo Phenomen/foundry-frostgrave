@@ -1,14 +1,26 @@
 <div class="tab spells container is-fluid" data-group="primary" data-tab="spells">
 
-    <button class="button is-outlined is-fullwidth item-create mb-4" data-type="spell">
-        <span class="icon is-small">
-            <i class="fas fa-plus"></i>
-        </span>
-        <span>Add Spell</span>
-    </button>
+    <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field is-expanded">
+            <div class="field has-addons">
+              <p class="control">
+                <a class="button is-static">
+                    Empowerment
+                </a>
+              </p>
+              <p class="control is-expanded">
+                <input class="input" type="text" name="data.empowerment" value="{{data.empowerment}}"
+                data-dtype="Number">
+              </p>
+            </div>      
+          </div>
+        </div>
+      </div>
+      
 
     {{#each actor.spells as |item id|}}
-    <div class="box item-card" data-item-id="{{item._id}}">
+    <div class="box item-card my-2 py-2" data-item-id="{{item._id}}">
         <div class="media">
             <div class="media-left">
                 <figure class="image is-square">
@@ -49,25 +61,53 @@
                     </div>
 
                     <div class="control">
+                            <span class="tag is-primary is-light">{{item.data.alignment}}</span>
+                    </div>
+
+                    <div class="control">
                         <div class="tags has-addons">
                             <span class="tag is-info">BCN</span>
                             <span class="tag is-info is-light">{{item.data.bcn}}</span>
                         </div>
                     </div>
 
+                    {{#if (ne item.data.improved 0)}}
                     <div class="control">
                         <div class="tags has-addons">
                             <span class="tag is-info">Improved</span>
                             <span class="tag is-info is-light">{{item.data.improved}}</span>
                         </div>
                     </div>
+                    {{/if}}
+
 
                 </div>
-                <div class="media-content pt-2">{{formatHTMLMessage item.data.description}}</div>
+                <div class="media-content">{{formatHTMLMessage item.data.description}}</div>
+
+                <button class="button is-info is-outlined is-fullwidth rollable is-capitalized mt-2"
+                    data-spell="1d20" data-label="{{name}}" data-bcn="{{item.data.bcn}}"
+                    data-improved="{{item.data.improved}}" data-alignment="{{item.data.alignment}}"
+                    data-empowerment="{{data.empowerment}}" data-description="{{item.data.description}}">
+                    <span class="icon">
+                        <i class="fas fa-dice-d20"></i>
+                    </span>
+                    <span>
+                        Cast {{name}}
+                    </span>
+                </button>
+
+
             </div>
 
         </div>
 
     </div>
     {{/each}}
+
+    <button class="button is-outlined is-fullwidth item-create mb-4" data-type="spell">
+        <span class="icon is-small">
+            <i class="fas fa-plus"></i>
+        </span>
+        <span>Add Spell</span>
+    </button>
 </div>

@@ -1,14 +1,7 @@
 <div class="tab gear container is-fluid" data-group="primary" data-tab="items">
 
-    <button class="button is-outlined is-fullwidth item-create mb-4" data-type="item">
-        <span class="icon is-small">
-            <i class="fas fa-plus"></i>
-        </span>
-        <span>Add Item</span>
-    </button>
-
     {{#each actor.gear as |item id|}}
-    <div class="box item-card" data-item-id="{{item._id}}">
+    <div class="box item-card my-2 py-2" data-item-id="{{item._id}}">
         <div class="media">
             <div class="media-left">
                 <figure class="image is-square">
@@ -79,8 +72,8 @@
                     {{#if (and (ne item.data.effect "") (ne item.data.effect null))}}
                     <div class="control">
                         <div class="tags has-addons">
-                            <span class="tag is-info">Effect</span>
-                            <span class="tag is-info is-light">{{item.data.effect}}</span>
+                            <span class="tag is-primary">Effect</span>
+                            <span class="tag is-primary is-light">{{item.data.effect}}</span>
                         </div>
                     </div>
                     {{/if}}
@@ -104,11 +97,17 @@
                     {{/if}}
 
                 </div>
-                <div class="media-content pt-2">{{formatHTMLMessage item.data.description}}</div>
+                <div class="media-content">{{formatHTMLMessage item.data.description}}</div>
             </div>
-
         </div>
-
     </div>
     {{/each}}
+
+    <button class="button is-outlined is-fullwidth item-create mb-4" data-type="item">
+        <span class="icon is-small">
+            <i class="fas fa-plus"></i>
+        </span>
+        <span>Add Item</span>
+    </button>
+
 </div>

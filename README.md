@@ -4,4 +4,7 @@
 
 This is a full-featured system to play Frostgrave and Ghost Archipelago wargames by Osprey Publishing. It has some automation: spellcasting, stat rolls.
 
-This system **does not** include any copyright-protected content (i.e. Spells, NPCs, Magic Items, Scenarios etc) and require at least one player to own a rulebook. You can buy **Frostgrave: Second Edition** at [Osprey Publishing Store](https://ospreypublishing.com/frostgrave) or get PDF at [DriveThruRPG](https://www.drivethrurpg.com/product/325026/Frostgrave-Second-Edition)
+This system **does not** include any copyright-protected material (i.e. Images, Spells, NPCs, Magic Items, Scenarios etc) and require at least one player to own a rulebook. You can buy **Frostgrave: Second Edition** at [Osprey Publishing Store](https://ospreypublishing.com/frostgrave) or get PDF at [DriveThruRPG](https://www.drivethrurpg.com/product/325026/Frostgrave-Second-Edition)
+
+
+**Foundry VTT Manifest:** https://raw.githubusercontent.com/Phenomen/foundry-frostgrave/master/system.json
